@@ -1,6 +1,8 @@
+package DataCompression;
+
 import java.io.File;
 
-class TestAnalysis {
+public class TestAnalysis {
 	public static void main(String[] args) {
 		try {
 			File f = FileReader.getFile(args);

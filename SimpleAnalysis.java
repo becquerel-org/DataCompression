@@ -1,3 +1,5 @@
+package DataCompression;
+
 import java.lang.Byte;
 import java.lang.Long;
 import java.io.FileInputStream;
@@ -8,13 +10,13 @@ import java.util.Iterator;
 import java.io.IOException;
 
 
-class SimpleAnalysis {
+public class SimpleAnalysis {
 
 	/** Array that holds for each byte the number of its occurrences */
 	private long[] bytecount;
 	private File inputFile;
 	
-	SimpleAnalysis(File inFile) throws IOException {
+	public SimpleAnalysis(File inFile) throws IOException {
 		inputFile = inFile;
 		bytecount = new long[Byte.MAX_VALUE];
 		perform();
