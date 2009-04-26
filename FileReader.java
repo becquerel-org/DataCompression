@@ -8,7 +8,7 @@ import java.io.OutputStream;
 import java.io.FileOutputStream;
 
 class FileReader {
-	static FileInputStream getInput(String[] args) throws IOException {
+	static File getFile(String[] args) throws IOException {
 		if (args.length==0) {
 			File temp = File.createTempFile("inputbuffer", ".buff");
 			temp.deleteOnExit();
@@ -22,10 +22,10 @@ class FileReader {
 				len = System.in.read(buff,0,buffsize);
 			}
 			if (!(len==-1)) {
-				out.write(buff,0,buffsize);
+				out.write(buff,0,len);
 			}
 			out.close();
-			return new FileInputStream(temp);
+			return temp;
 		} else {
 			File f=new File(args[0]);
 			if (!(f.exists()&&f.canRead())) {
@@ -37,7 +37,7 @@ class FileReader {
 				}
 				throw new IOException(error);
 			}
-			return new FileInputStream(f);
+			return f;
 		}
 	}
 }
