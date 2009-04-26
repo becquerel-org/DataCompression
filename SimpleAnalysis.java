@@ -31,8 +31,16 @@ class SimpleAnalysis {
 			inputStream.reset();
 		}
 	}
+	public long getByteCount() {
+		long ret=0;
+		for (byte i=0; i < Byte.MAX_VALUE; ++i)
+			ret+=bytecount[i];
 
-	HashSet<Byte> getBytes() {
+		return ret;
+
+	}
+
+	public 	HashSet<Byte> getBytes() {
 		HashSet<Byte> ret = new HashSet<Byte>();
 		for (byte i=0; i < Byte.MAX_VALUE; ++i) {
 			if (bytecount[i]>0) {
@@ -42,7 +50,7 @@ class SimpleAnalysis {
 		return ret;
 	}
 
-	Hashtable<Byte, Long> getByteCount() {
+	public Hashtable<Byte, Long> getByteFrequencies() {
 		Hashtable<Byte,Long> ret = new Hashtable<Byte,Long>();
 		for (byte i=0; i < Byte.MAX_VALUE; ++i) {
 			ret.put(i,bytecount[i]);
