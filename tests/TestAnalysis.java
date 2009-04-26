@@ -1,7 +1,7 @@
 package DataCompression.tests;
 
 import java.io.File;
-import DataCompression.SimpleAnalysis;
+import DataCompression.tools.SimpleAnalysis;
 import DataCompression.util.FileReader;
 
 public class TestAnalysis {

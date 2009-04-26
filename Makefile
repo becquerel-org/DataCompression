@@ -5,3 +5,7 @@ OBJECTS=$(SOURCE:.java=.class)
 	javac -cp .. $<
 
 all: $(OBJECTS)
+
+clean:
+	rm $(OBJECTS)
+
