@@ -1,4 +1,4 @@
-package DataCompression;
+package DataCompression.tools;
 
 import java.lang.Byte;
 import java.lang.Long;
