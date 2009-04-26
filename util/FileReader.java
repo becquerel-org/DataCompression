@@ -1,4 +1,4 @@
-package DataCompression;
+package DataCompression.util;
 
 import java.io.InputStream;
 import java.io.FileInputStream;
@@ -9,8 +9,8 @@ import java.io.FileWriter;
 import java.io.OutputStream;
 import java.io.FileOutputStream;
 
-class FileReader {
-	static File getFile(String[] args) throws IOException {
+public class FileReader {
+	public static File getFile(String[] args) throws IOException {
 		if (args.length==0) {
 			File temp = File.createTempFile("inputbuffer", ".buff");
 			temp.deleteOnExit();

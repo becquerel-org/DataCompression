@@ -1,6 +1,8 @@
 package DataCompression;
 
 import java.io.File;
+import DataCompression.SimpleAnalysis;
+import DataCompression.util.FileReader;
 
 public class TestAnalysis {
 	public static void main(String[] args) {
