@@ -6,6 +6,12 @@ OBJECTS=$(SOURCE:.java=.class)
 
 all: $(OBJECTS)
 
+.PHONY : doc
+doc: 
+	javadoc -private  -d doc/ -classpath ..  -subpackages DataCompression.tools DataCompression.tests Datacompression.util DataCompression
+
+.PHONY : clean
 clean:
 	rm $(OBJECTS)
+	rm -r doc/*
 
