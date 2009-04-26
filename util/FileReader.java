@@ -9,9 +9,15 @@ import java.io.FileWriter;
 import java.io.OutputStream;
 import java.io.FileOutputStream;
 
+/**
+ * Provides access to a File to work with. If no file is given it encapsulates stdin to a file.
+ */
 public class FileReader {
+	/**
+	 * Tries to open the first argument as file. If first argument is not given stdin is read into a temporary file.
+	 */
 	public static File getFile(String[] args) throws IOException {
-		if (args.length==0) {
+		if (args.length==0) { // No file name given
 			File temp = File.createTempFile("inputbuffer", ".buff");
 			temp.deleteOnExit();
 			FileOutputStream out = new FileOutputStream(temp);
@@ -19,17 +25,15 @@ public class FileReader {
 			int buffsize=1024;
 			byte[] buff = new byte[buffsize];
 			len = System.in.read(buff,0,buffsize);
-			while (len==buffsize) {
-				out.write(buff,0,buffsize);
-				len = System.in.read(buff,0,buffsize);
-			}
-			if (!(len==-1)) {
+			while (len!=-1) { // read until no more input is available
 				out.write(buff,0,len);
+				len = System.in.read(buff,0,buffsize);
 			}
 			out.close();
 			return temp;
-		} else {
-			File f=new File(args[0]);
+		} else { // file name given
+			File f=new File(args[0]); // try to open it
+			// check whether file exists and can be read
 			if (!(f.exists()&&f.canRead())) {
 				String error = "File "+f.getName();
 				if (!f.exists()) {

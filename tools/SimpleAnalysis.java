@@ -10,18 +10,29 @@ import java.util.Iterator;
 import java.io.IOException;
 
 
+/**
+ * Simple analysis of a file.
+ * Checks which bytes occur in a file and their frequency.
+ */
 public class SimpleAnalysis {
 
 	/** Array that holds for each byte the number of its occurrences */
 	private long[] bytecount;
+	/** The file to be analysed. */
 	private File inputFile;
 	
+	/**
+	 * @param inFile supposed to exist and to be readable.
+	 */
 	public SimpleAnalysis(File inFile) throws IOException {
 		inputFile = inFile;
 		bytecount = new long[Byte.MAX_VALUE];
 		perform();
 	}
 
+	/**
+	 * Performs the analysis.
+	 */
 	protected void perform() throws IOException {
 		Byte b;
 		int c;
@@ -39,6 +50,10 @@ public class SimpleAnalysis {
 			inputStream.close();
 		}
 	}
+
+	/**
+	 * Returns the number of bytes read in the file.
+	 */
 	public long getByteCount() {
 		long ret=0;
 		for (byte i=0; i < Byte.MAX_VALUE; ++i)
@@ -48,6 +63,9 @@ public class SimpleAnalysis {
 
 	}
 
+	/**
+	 * Returns the set of bytes that the file contains.
+	 */
 	public 	HashSet<Byte> getBytes() {
 		HashSet<Byte> ret = new HashSet<Byte>();
 		for (byte i=0; i < Byte.MAX_VALUE; ++i) {
@@ -58,6 +76,9 @@ public class SimpleAnalysis {
 		return ret;
 	}
 
+	/**
+	 * Returns a Hashtable containing for each byte how often it occurres in the file.
+	 */
 	public Hashtable<Byte, Long> getByteFrequencies() {
 		Hashtable<Byte,Long> ret = new Hashtable<Byte,Long>();
 		for (byte i=0; i < Byte.MAX_VALUE; ++i) {
@@ -66,6 +87,9 @@ public class SimpleAnalysis {
 		return ret;
 	}
 
+	/**
+	 * String representation of the results.
+	 */
 	public String toString() {
 		String ret =  "Read "+this.getByteCount()+" Bytes\n";
 		ret +="Occuring bytes: "+this.getBytes().toString()+"\n";

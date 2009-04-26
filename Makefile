@@ -8,7 +8,7 @@ all: $(OBJECTS)
 
 .PHONY : doc
 doc: 
-	javadoc -private  -d doc/ -classpath ..  -subpackages DataCompression.tools DataCompression.tests Datacompression.util DataCompression
+	javadoc -private  -d doc/ -classpath ..  -subpackages DataCompression.tools DataCompression.tests DataCompression.util DataCompression
 
 .PHONY : clean
 clean:
