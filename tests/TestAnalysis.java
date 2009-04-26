@@ -1,4 +1,4 @@
-package DataCompression;
+package DataCompression.tests;
 
 import java.io.File;
 import DataCompression.SimpleAnalysis;
