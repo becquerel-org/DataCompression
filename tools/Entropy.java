@@ -7,6 +7,7 @@ import java.io.File;
 import java.util.Hashtable;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Enumeration;
 import java.io.IOException;
 
 import DataCompression.tools.SimpleAnalysis;
@@ -34,7 +35,15 @@ public class Entropy {
 		perform();
 	}
 
+	/**
+	 * Takes a SimpleAnalysis. Contains sufficient information to
+	 * compute the entropy.
+	 */
 	public Entropy(SimpleAnalysis s) {
+		entropy=0;
+		shanon=0;
+		probs = new Hashtable<Byte,Double>();
+		perform();
 		analysis = s;
 	}
 
@@ -46,37 +55,53 @@ public class Entropy {
 		Hashtable<Byte, Long> freqs = analysis.getByteFrequencies();
 		probs = new Hashtable<Byte,Double>();
 		Byte b;
-                for (Iterator<Byte> it = analysis.getBytes().iterator();
-                                it.hasNext();) {
-                        b=it.next();
-                        probs.put(b,((double)freqs.get(b)) / noBytes);
-                }
-		entropy=0;
 		for (Iterator<Byte> it = analysis.getBytes().iterator();
-                                it.hasNext();) {
+				it.hasNext();) {
 			b=it.next();
-			double prob=probs.get(b);
-			entropy+= prob * Math.log(1/prob)/Math.log(2);
-		}
+			probs.put(b,((double)freqs.get(b)) / noBytes);
+				}
+		entropy=computeEntropy(probs);
 	}
 
+	/**
+	 * Returns the entropy of the file.
+	 */
 	public double getEntropy() {
 		return entropy;
 	}
 
+	/**
+	 * Returns the minimal code length.
+	 */
+	public long minimalCodeLength() {
+		return (long)Math.ceil(entropy*analysis.getByteCount());
+	}
+
 	public String toString() {
-		long expected=(long)Math.ceil(entropy*analysis.getByteCount());
+		long expected = this.minimalCodeLength();
 		String ret = "Entropy: "+ entropy + "\n";
-		ret += "Minimal code length " + expected + "\n";
-                ret +="Byte probabilities: {";
-                Byte b;
-                for (Iterator<Byte> it = analysis.getBytes().iterator();
-                                it.hasNext();) {
-                        b=it.next();
-                        ret += b.toString()+"="+probs.get(b).toString()+", ";
-                }
+		ret += "Minimal code length " + expected + " bits\n";
+		ret +="Byte probabilities: {";
+		Byte b;
+		for (Iterator<Byte> it = analysis.getBytes().iterator();
+				it.hasNext();) {
+			b=it.next();
+			ret += b.toString()+"="+probs.get(b).toString()+", ";
+				}
 
-                return ret.substring(0,ret.length()-2)+"}\n";
+		return ret.substring(0,ret.length()-2)+"}\n";
 
+	}
+
+
+	public static double computeEntropy(Hashtable<Byte, Double> distribution) {
+		double ret=0;
+		double prob=0;
+		for (Enumeration<Double> e = distribution.elements();
+				e.hasMoreElements();) {
+			prob=e.nextElement();
+			ret+= prob * Math.log(1/prob)/Math.log(2);
+				}
+		return ret;
 	}
 }
