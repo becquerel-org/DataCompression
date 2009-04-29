@@ -1,7 +1,7 @@
-SOURCE=tools/SimpleAnalysis.java tests/TestAnalysis.java util/FileReader.java
+SOURCE=tools/SimpleAnalysis.java tests/TestAnalysis.java util/FileReader.java tools/Entropy.java tests/TestEntropy.java
 OBJECTS=$(SOURCE:.java=.class)
 
-%.class: %.java $(SOURCE)
+%.class: %.java
 	javac -cp .. $<
 
 all: $(OBJECTS)
