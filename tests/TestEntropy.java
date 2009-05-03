@@ -12,6 +12,8 @@ public class TestEntropy {
 			System.out.println(count.toString());
 		} catch (Exception e) {
 			System.out.println(e.toString());
+			StackTraceElement trace=e.getStackTrace()[0];
+			System.out.println(trace.getFileName()+": "+trace.getLineNumber());
 		}
 	}
 }

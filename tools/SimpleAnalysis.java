@@ -26,7 +26,7 @@ public class SimpleAnalysis {
 	 */
 	public SimpleAnalysis(File inFile) throws IOException {
 		inputFile = inFile;
-		bytecount = new long[Byte.MAX_VALUE];
+		bytecount = new long[Byte.MAX_VALUE*2+2];
 		perform();
 	}
 
@@ -38,7 +38,7 @@ public class SimpleAnalysis {
 		int c;
 		FileInputStream inputStream=new FileInputStream(inputFile);
 
-		bytecount = new long[Byte.MAX_VALUE];
+		bytecount = new long[Byte.MAX_VALUE*2+2];
 
 		try {
 			c=inputStream.read();
