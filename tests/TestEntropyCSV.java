@@ -14,8 +14,8 @@ public class TestEntropyCSV {
 			Entropy countTriple=new Entropy(new SimpleAnalysis(f, 3));
 
 			System.out.println
-					("\"" + countSingular.getEntropy() + "\", \""
-					      + countDual.getEntropy() + "\", \""
+					("\"" + countSingular.getEntropy() + "\",\""
+					      + countDual.getEntropy() + "\",\""
 					      + countTriple.getEntropy() + "\"");
 		} catch (Exception e) {
 			System.out.println(e.toString());

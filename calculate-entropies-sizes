@@ -1,0 +1,8 @@
+#!/bin/sh
+
+echo File,GZIP bytes,Entropy 1,Entropy 2,Entropy 3
+
+for i in $(find . -type f); do
+  echo -n $i,$(cat $i|gzip -|wc --bytes),;
+  java -cp ../../../projects DataCompression.tests.TestEntropyCSV $i;
+done
