@@ -1,0 +1,25 @@
+USAGE:
+
+Run with java -cp .. DataCompression.tests.<task> <filename>
+e.g java -cp .. DataCompression.tests.TestEntropy
+
+tests/
+tests/TestAnalysis.java
+tests/TestEntropy.java
+
+Contains the programs for the following tasks:
+* Perform simple statistics
+* Compute entropy
+
+util/
+util/FileReader.java
+
+Parses the command line: If filename is given an InputStream for that file is returned, else the stdin is read into a temporary file for which the InputStream is given. (To allow multiple sweeps over the input)
+
+tools/SimpleAnalysis.java
+
+Does simple analysis of the input. Counts bytes etc.
+
+tools/Entropy.java
+
+Computes the entropy using SimpleAnalysis

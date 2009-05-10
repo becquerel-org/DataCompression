@@ -16,6 +16,7 @@ import DataCompression.tools.SimpleAnalysis;
 /**
  * Computes the entropy of a file.
  * Checks which bytes occur in a file and their frequency.
+ * Computes the minimal code length of the file based on the entropy.
  */
 public class Entropy {
 
@@ -94,7 +95,10 @@ public class Entropy {
 	}
 
 
-	public static double computeEntropy(Hashtable<Byte, Double> distribution) {
+	/**
+	 * Computes the entropy.
+	 */
+	protected static double computeEntropy(Hashtable<Byte, Double> distribution) {
 		double ret=0;
 		double prob=0;
 		for (Enumeration<Double> e = distribution.elements();

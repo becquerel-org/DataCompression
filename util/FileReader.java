@@ -10,11 +10,14 @@ import java.io.OutputStream;
 import java.io.FileOutputStream;
 
 /**
- * Provides access to a File to work with. If no file is given it encapsulates stdin to a file.
+ * Opens the file to work with.
+ * Takes filename from command line and checks if file is readable.
+ * If no file is given it encapsulates stdin into a temp file.
  */
 public class FileReader {
 	/**
-	 * Tries to open the first argument as file. If first argument is not given stdin is read into a temporary file.
+	 * Tries to open the first argument as file.
+	 * If first argument is not given stdin is read into a temporary file.
 	 */
 	public static File getFile(String[] args) throws IOException {
 		if (args.length==0) { // No file name given
