@@ -1,4 +1,4 @@
-SOURCE=tools/SimpleAnalysis.java tests/TestAnalysis.java util/FileReader.java tools/Entropy.java tests/TestEntropy.java
+SOURCE=tools/SimpleAnalysis.java tests/TestAnalysis.java util/FileReader.java tools/Entropy.java tests/TestEntropy.java tests/TestEntropyCSV.java tools/MTF.java tests/TestMTFEncode.java tests/TestMTFDecode.java tools/Shannon.java tools/Huffman.java tests/TestShannonEncode.java tests/TestShannonDecode.java
 OBJECTS=$(SOURCE:.java=.class)
 
 %.class: %.java
