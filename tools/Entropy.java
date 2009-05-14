@@ -16,7 +16,6 @@ import DataCompression.tools.SimpleAnalysis;
 /**
  * Computes the entropy of a file.
  * Checks which bytes occur in a file and their frequency.
- * Computes the minimal code length of the file based on the entropy.
  */
 public class Entropy {
 
@@ -24,17 +23,7 @@ public class Entropy {
 	private SimpleAnalysis analysis;
 	private double entropy;
 	private int shanon;
-	private Hashtable<Byte, Double> probs;
-	/**
-	 * @param inFile supposed to exist and to be readable.
-	 */
-	public Entropy(File inFile) throws IOException {
-		analysis = new SimpleAnalysis(inFile);
-		entropy=0;
-		shanon=0;
-		probs = new Hashtable<Byte,Double>();
-		perform();
-	}
+	private Hashtable<Long, Double> probs;
 
 	/**
 	 * Takes a SimpleAnalysis. Contains sufficient information to
@@ -43,9 +32,9 @@ public class Entropy {
 	public Entropy(SimpleAnalysis s) {
 		entropy=0;
 		shanon=0;
-		probs = new Hashtable<Byte,Double>();
-		perform();
+		probs = new Hashtable<Long,Double>();
 		analysis = s;
+		perform();
 	}
 
 	/**
@@ -53,10 +42,10 @@ public class Entropy {
 	 */
 	protected void perform() {
 		long noBytes = analysis.getByteCount();
-		Hashtable<Byte, Long> freqs = analysis.getByteFrequencies();
-		probs = new Hashtable<Byte,Double>();
-		Byte b;
-		for (Iterator<Byte> it = analysis.getBytes().iterator();
+		Hashtable<Long, Long> freqs = analysis.getByteFrequencies();
+		probs = new Hashtable<Long,Double>();
+		Long b;
+		for (Iterator<Long> it = analysis.getBytes().iterator();
 				it.hasNext();) {
 			b=it.next();
 			probs.put(b,((double)freqs.get(b)) / noBytes);
@@ -82,9 +71,9 @@ public class Entropy {
 		long expected = this.minimalCodeLength();
 		String ret = "Entropy: "+ entropy + "\n";
 		ret += "Minimal code length " + expected + " bits\n";
-		ret +="Byte probabilities: {";
-		Byte b;
-		for (Iterator<Byte> it = analysis.getBytes().iterator();
+		ret +="Symbol probabilities: {";
+		Long b;
+		for (Iterator<Long> it = analysis.getBytes().iterator();
 				it.hasNext();) {
 			b=it.next();
 			ret += b.toString()+"="+probs.get(b).toString()+", ";
@@ -95,10 +84,7 @@ public class Entropy {
 	}
 
 
-	/**
-	 * Computes the entropy.
-	 */
-	protected static double computeEntropy(Hashtable<Byte, Double> distribution) {
+	public static double computeEntropy(Hashtable<Long, Double> distribution) {
 		double ret=0;
 		double prob=0;
 		for (Enumeration<Double> e = distribution.elements();
