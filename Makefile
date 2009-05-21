@@ -1,4 +1,4 @@
-SOURCE=tools/SimpleAnalysis.java tests/TestAnalysis.java util/FileReader.java tools/Entropy.java tests/TestEntropy.java tests/TestEntropyCSV.java tools/MTF.java tests/TestMTFEncode.java tests/TestMTFDecode.java tools/Shannon.java tools/Huffman.java tests/TestShannonEncode.java tests/TestShannonDecode.java
+SOURCE=tools/SimpleAnalysis.java tests/TestAnalysis.java util/FileReader.java tools/Entropy.java tests/TestEntropy.java tests/TestEntropyCSV.java tools/MTF.java tests/TestMTFEncode.java tests/TestMTFDecode.java tools/Shannon.java tools/Huffman.java tests/TestShannonEncode.java tests/TestShannonDecode.java tools/BurrowsWheeler.java tests/TestBurrowsWheelerEncode.java tests/TestBurrowsWheelerDecode.java
 OBJECTS=$(SOURCE:.java=.class)
 
 %.class: %.java
