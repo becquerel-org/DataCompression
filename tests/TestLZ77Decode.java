@@ -1,13 +1,13 @@
 package DataCompression.tests;
 
-import DataCompression.tools.BurrowsWheeler;
+import DataCompression.tools.LZ77;
 
-public class TestBurrowsWheelerDecode {
+public class TestLZ77Decode {
 	public static void main(String[] args)
 	{
 		try
 		{
-			BurrowsWheeler t = new BurrowsWheeler();
+			LZ77 t = new LZ77(100, 100);
 			
 			t.decode (args[0], args[1]);
 		}

@@ -130,7 +130,7 @@ public class BurrowsWheeler
 			System.out.println ("");
 		}
 		System.out.println ("--");
-	}*/
+	}
 
 	protected void printArray(int in[])
 	{
@@ -139,7 +139,7 @@ public class BurrowsWheeler
 			System.out.print ((char)in[a]);
 		}
 		System.out.println ("");
-	}
+	}*/
 
 	public int[] decode (int in[])
 	{
