@@ -1,47 +1,36 @@
 package DataCompression.tools;
 
-import DataCompression.util.ObjectReader;
-
-import java.io.DataCompression;
+import java.io.DataInput;
 import java.io.IOException;
+import java.io.EOFException;
 
-class SimpleSNR {
-	private DataCompression origin;
-	private DataCompression duplicate;
+public class SNR {
+	private DataInput origin;
+	private DataInput duplicate;
 
-	public SimpleSNR(DataInputStream x, DataInputStream y) {
+	public SNR(DataInput x, DataInput y) {
 		origin=x;
 		duplicate=y;
 	}
 
-	float computeSNR() throw IOException {
+	double computeSNR() throws IOException {
 		double sigmasquare = 0;
 		double diffsquare = 0;	
 		double x;
 		double y;
 		int n=0;
-		while(true) {
-			x=origin.readDouble();
-			y=duplicate.readDouble();
-			n=n++;
-			sigmasquare+=(x*x);
-			diffsquare+=((x-y)*(x-y));
-		}
-		
+		try {
+				while(true) {
+					x=origin.readDouble();
+					y=duplicate.readDouble();
+					n=n++;
+					sigmasquare+=(x*x);
+					diffsquare+=((x-y)*(x-y));
+				}
+		} catch(EOFException e) {};
+		double ret=0;
+		ret = (1/((double)n)*sigmasquare)/(1/((double)n)*diffsquare);
+		return ret;
 	}
 
-}
-
-/** Transform objects of type T to an int */
-interface Quantify<T> {
-	public int meassure(T obj);
-}
-
-class SNR<T> {
-	
-	private ObjectReader<T> reader;
-
-	public SNR(ObjectReader<T> x, ObjectReader) {
-		reader=r;
-	}
 }
