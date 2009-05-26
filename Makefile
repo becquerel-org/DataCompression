@@ -19,6 +19,6 @@ doc:
 
 .PHONY : clean
 clean:
-	rm $(OBJECTS)
-	rm -r doc/*
+	rm -f $(OBJECTS)
+	rm -rf doc/*
 
