@@ -5,14 +5,14 @@ import java.io.IOException;
 import java.io.EOFException;
 
 
-public class Distortion {
+public class DifferentialAnalysis {
 	
 	private DataInput origin;
 	private DataInput duplicate;
 
-	Distortion(DataInput origin, DataInput duplicate) throws IOException {
-		origin=origin;
-		duplicate=duplicate;
+	DifferentialAnalysis(DataInput origin, DataInput duplicate) throws IOException {
+		this.origin=origin;
+		this.duplicate=duplicate;
 		perform();
 	}
 
