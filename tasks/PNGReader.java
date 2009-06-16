@@ -7,38 +7,36 @@ import javax.imageio.ImageIO;
 import java.awt.image.Raster;
 
 
-public class BWImageCompressor {
+public class PNGReader implements BWImageReader {
 
-	BufferedImage image;
-	Raster raster;
-	int width;
-	int height;
-	
+	private BufferedImage image;
+	private Raster raster;
+	private int width;
+	private int height;
 
-	public BWImageCompressor(String inFile, String outFile) throws IOException {
+	public PNGReader(String inFile) throws IOException {
 	  image = ImageIO.read(new File(inFile));
 		raster = image.getData();
 		width=raster.getWidth();
 		height=raster.getHeight();
 	}
 
-	protected int readPixel(int i, int j) {
+	public byte getPixel(int i, int j) {
 		int[] tmp=new int[2];
-		return raster.getPixel(i,j,tmp)[0];
+		return (byte)raster.getPixel(i,j,tmp)[0];
 	}
 
-
-	public void compress() {
+	public int getWidth() {
+		return width;
 	}
 
-
-	public void write() {
+	public int getHeight() {
+		return height;
 	}
 
 	public static void main(String[] argv) {
 		try {
-		BWImageCompressor a = new BWImageCompressor(argv[0], argv[0]+".bw c");
-		a.compress();
+		PNGReader a = new PNGReader(argv[0]);
 		} catch (Exception e) {
 			System.out.println(e.toString());
       StackTraceElement trace=e.getStackTrace()[0];
