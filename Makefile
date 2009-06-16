@@ -3,8 +3,10 @@
 SOURCETOOLS=$(wildcard tools/*.java)
 SOURCEUTIL=$(wildcard util/*.java)
 SOURCETEST=$(wildcard tests/*.java)
+SOURCETASKS=$(wildcard tasks/*.java)
 
-SOURCE=$(SOURCETOOLS) $(SOURCEUTIL) $(SOURCETEST)
+
+SOURCE=$(SOURCETOOLS) $(SOURCEUTIL) $(SOURCETEST) $(SOURCETASKS)
 
 OBJECTS=$(SOURCE:.java=.class)
 

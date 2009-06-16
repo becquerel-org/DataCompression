@@ -1,0 +1,1 @@
+java -cp .. DataCompression.tasks.BWImageCompressor gruppe-ws0809-small-bw.png
