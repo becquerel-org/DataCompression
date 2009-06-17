@@ -34,13 +34,4 @@ public class PNGReader implements BWImageReader {
 		return height;
 	}
 
-	public static void main(String[] argv) {
-		try {
-		PNGReader a = new PNGReader(argv[0]);
-		} catch (Exception e) {
-			System.out.println(e.toString());
-      StackTraceElement trace=e.getStackTrace()[0];
-      System.out.println(trace.getFileName()+": "+trace.getLineNumber());
-	  }
-	}
 }
