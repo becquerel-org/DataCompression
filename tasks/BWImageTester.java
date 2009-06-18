@@ -20,6 +20,11 @@ public class BWImageTester {
 		compressed=comp;
 	}
 
+	public BWImageTester(BWImageTester ori, BWImageReader comp) {
+		original=ori;
+		compressed=comp;
+	}
+
 	
 
 	protected boolean comparePixel(int i, int j) {
