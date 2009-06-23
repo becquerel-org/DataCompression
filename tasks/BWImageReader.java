@@ -5,7 +5,7 @@ public interface BWImageReader {
 	/** Returns the value of the pixel at position width,height.
 			Returns either zero or a non-zero value.
 	*/
-	public byte getPixel(int width, int height);
+	public int getPixel(int width, int height);
 	/** Return the width of the image.*/
 	public int getWidth();
 	/** Return the height of the image.*/

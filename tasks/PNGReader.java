@@ -21,9 +21,9 @@ public class PNGReader implements BWImageReader {
 		height=raster.getHeight();
 	}
 
-	public byte getPixel(int i, int j) {
+	public int getPixel(int i, int j) {
 		int[] tmp=new int[2];
-		return (byte)raster.getPixel(i,j,tmp)[0];
+		return raster.getPixel(i,j,tmp)[0];
 	}
 
 	public int getWidth() {
@@ -33,5 +33,17 @@ public class PNGReader implements BWImageReader {
 	public int getHeight() {
 		return height;
 	}
+  static public void main(String[] argv) {
+    try {
+      PNGReader a=new PNGReader(argv[0]);
+      for (int i=0;i<a.getWidth();i++) {
+      for (int j=0;j<a.getHeight();j++) {
+        System.out.println(a.getPixel(i,100));
+}}
+
+    } catch(Exception e)
+    {
+    }
+  }
 
 }

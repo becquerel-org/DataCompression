@@ -20,7 +20,7 @@ public class BWImageTester {
 		compressed=comp;
 	}
 
-	public BWImageTester(BWImageTester ori, BWImageReader comp) {
+	public BWImageTester(BWImageReader ori, BWImageReader comp) {
 		original=ori;
 		compressed=comp;
 	}
