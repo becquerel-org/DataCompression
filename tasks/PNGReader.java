@@ -43,6 +43,7 @@ public class PNGReader implements BWImageReader {
 
     } catch(Exception e)
     {
+		e.printStackTrace(System.err);
     }
   }
 
