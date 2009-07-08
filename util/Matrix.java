@@ -1,6 +1,5 @@
 package DataCompression.util;
 
-import DataCompression.util.MatrixIndexOutOfBoundsException;
 import DataCompression.util.DimensionException;
 
 /**
@@ -52,20 +51,12 @@ public class Matrix {
 
 	// Methods
 
-	public double at(int row, int column) throws MatrixIndexOutOfBoundsException {
-		try {
+	public double at(int row, int column) throws IndexOutOfBoundsException {
 		return data[row][column];
-		} catch (ArrayIndexOutOfBoundsException e) {
-			throw new MatrixIndexOutOfBoundsException(e.toString());
-		}
 	}
 
-	public void set(int row, int column, double value) throws MatrixIndexOutOfBoundsException {
-		try {
+	public void set(int row, int column, double value) throws IndexOutOfBoundsException {
 		data[row][column]=value;
-		} catch (ArrayIndexOutOfBoundsException e) {
-			throw new MatrixIndexOutOfBoundsException(e.toString());
-		}
 	}
 
 	public Matrix transpose() {
@@ -96,11 +87,41 @@ public class Matrix {
 		return ret;
 	}
 
+	public RowVector multiply(ColumnVector oth) throws DimensionException {
+		if (columns!=oth.size()) {
+			throw new DimensionException("Cannot multiply " + rows + " times " +
+					columns + " matrix with vector of size " + oth.size());
+		}
+
+		RowVector ret = new RowVector(rows);
+		for (int i=0; i<rows; i++) {
+			double val=0;
+			for (int k=0;k<columns; k++) {
+				val+=data[i][k]*oth.data[k];
+			}
+			ret.data[i]=val;
+		}
+
+		return ret;
+	}
+
+	
+
 	public boolean equals(Matrix oth) {
 		if ((rows!=oth.rows) && (columns!=oth.columns))
 			return false;
 		return data.equals(oth.data);
 	}
 
+	public String toString() {
+		String ret = "";
+		for (int i=0; i<rows; i++) {
+			for (int j=0;j<columns-1;j++) {
+				ret += data[i][j] + ", ";
+			}
+			ret+= data[i][columns-1] + "\n";
+		}
+		return ret;
+	}
 
 }
