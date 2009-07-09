@@ -1,6 +1,7 @@
 package DataCompression.util;
 
 import DataCompression.util.DimensionException;
+import java.text.DecimalFormat;
 
 /**
  * Simple Matrix class
@@ -114,10 +115,18 @@ public class Matrix {
 	}
 
 	public String toString() {
+		return toString(null);
+	}
+
+	public String toString(DecimalFormat format) {
 		String ret = "";
 		for (int i=0; i<rows; i++) {
 			for (int j=0;j<columns-1;j++) {
-				ret += data[i][j] + ", ";
+				if (format!=null) {
+					ret += format.format(data[i][j]) + ", ";
+				} else {
+					ret += data[i][j] + ", ";
+				}
 			}
 			ret+= data[i][columns-1] + "\n";
 		}
