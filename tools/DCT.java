@@ -1,20 +1,14 @@
 package DataCompression.tools;
 
 import java.lang.Math;
-import DataCompression.util.Matrix;
+import DataCompression.util.DoubleMatrix;
 
 /**
  *	Discrete Cosinus Transformation
  * */
-public class DCT {
+public abstract class DCT {
 	
-	//private int dimension;
-
-	public DCT(int n) {
-		//dimension=n;
-	}
-
-	private double c(int n) {
+	static private double c(int n) {
 		if (n==0) {
 			return Math.sqrt(2);
 		} else {
@@ -22,8 +16,8 @@ public class DCT {
 		}
 	}
 
-	protected Matrix computeTransformationMatrix(int n) {
-		Matrix ret = new Matrix(n);
+	static private DoubleMatrix computeTransformationMatrix(int n) {
+		DoubleMatrix ret = new DoubleMatrix(n);
 		for (int i=0; i<n; ++i) {
 			for (int j=0; j<n; ++j) {
 				double val;
@@ -38,9 +32,9 @@ public class DCT {
 	}
 
 	// Why the f*** doesn't this work?
-	public Matrix computeF(Matrix m) {
+	public DoubleMatrix computeF(DoubleMatrix m) {
 		int dimension=m.rows();
-		Matrix ret = new Matrix(dimension);
+		DoubleMatrix ret = new DoubleMatrix(dimension);
 		for (int x =0; x<dimension; ++x) {
 			for (int y=0; y<dimension; ++y) {
 				double val=2*(double)(c(x)*c(y))/(double)dimension;
@@ -61,12 +55,21 @@ public class DCT {
 		
 	}
 
-	public Matrix computeF2(Matrix m) {
-		Matrix a= computeTransformationMatrix(m.rows());
-		Matrix b=a.transpose();
+	static public DoubleMatrix computeDCT(DoubleMatrix m) {
+		DoubleMatrix a= computeTransformationMatrix(m.rows());
+		DoubleMatrix b=a.transpose();
 		System.err.println(a);
 		System.err.println(b);
 
 		return a.multiply(m.multiply(b));
+	}
+
+	static public DoubleMatrix computeDCTinverse(DoubleMatrix m) {
+		DoubleMatrix a= computeTransformationMatrix(m.rows());
+		DoubleMatrix b=a.transpose();
+		System.err.println(a);
+		System.err.println(b);
+
+		return b.multiply(m.multiply(a));
 	}
 }

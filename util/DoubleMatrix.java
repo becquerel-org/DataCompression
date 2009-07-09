@@ -6,7 +6,7 @@ import java.text.DecimalFormat;
 /**
  * Simple Matrix class
  */
-public class Matrix {
+public class DoubleMatrix {
 	private double[][] data;
 
 	private int rows;
@@ -15,15 +15,15 @@ public class Matrix {
 
 	// Constructors
 	
-	public Matrix(int rows, int columns) {
+	public DoubleMatrix(int rows, int columns) {
 		init(rows,columns);
 	}
 
-	public Matrix(int n) {
+	public DoubleMatrix(int n) {
 		init(n,n);
 	}
 
-	public Matrix(double[][] raw) {
+	public DoubleMatrix(double[][] raw) {
 		init(raw.length, columns=raw[0].length);
 
 		for (int i=0; i<rows; i++) {
@@ -60,8 +60,8 @@ public class Matrix {
 		data[row][column]=value;
 	}
 
-	public Matrix transpose() {
-		Matrix ret = new Matrix(columns, rows);
+	public DoubleMatrix transpose() {
+		DoubleMatrix ret = new DoubleMatrix(columns, rows);
 		for (int i=0; i<rows; i++) {
 			for (int j=0;j<columns;j++) {
 				ret.set(j,i,data[i][j]);
@@ -70,12 +70,12 @@ public class Matrix {
 		return ret;
 	}
 
-	public Matrix multiply(Matrix oth) throws DimensionException {
+	public DoubleMatrix multiply(DoubleMatrix oth) throws DimensionException {
 		if (columns!=oth.rows) {
 			throw new DimensionException(DimensionException.multiplicationError(rows,columns,oth.rows,oth.columns));
 		}
 
-		Matrix ret = new Matrix(rows,oth.columns);
+		DoubleMatrix ret = new DoubleMatrix(rows,oth.columns);
 		for (int i=0; i<rows; i++) {
 			for (int j=0; j<oth.columns;j++) {
 				double val=0;
@@ -108,7 +108,7 @@ public class Matrix {
 
 	
 
-	public boolean equals(Matrix oth) {
+	public boolean equals(DoubleMatrix oth) {
 		if ((rows!=oth.rows) && (columns!=oth.columns))
 			return false;
 		return data.equals(oth.data);
