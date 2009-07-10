@@ -16,6 +16,9 @@ public abstract class DCT {
 		}
 	}
 
+	/**
+	 * Computes transformation matrix for dimension n.
+	 */
 	static private DoubleMatrix computeTransformationMatrix(int n) {
 		DoubleMatrix ret = new DoubleMatrix(n);
 		for (int i=0; i<n; ++i) {
@@ -32,6 +35,9 @@ public abstract class DCT {
 	}
 
 	// Why the f*** doesn't this work?
+	/**
+	 * Should compute the DCT but it does not, why?
+	 */
 	public DoubleMatrix computeF(DoubleMatrix m) {
 		int dimension=m.rows();
 		DoubleMatrix ret = new DoubleMatrix(dimension);
@@ -55,6 +61,9 @@ public abstract class DCT {
 		
 	}
 
+	/**
+	 * Computes DCT via matrix multiplication.
+	 */
 	static public DoubleMatrix computeDCT(DoubleMatrix m) {
 		DoubleMatrix a= computeTransformationMatrix(m.rows());
 		DoubleMatrix b=a.transpose();
@@ -64,6 +73,9 @@ public abstract class DCT {
 		return a.multiply(m.multiply(b));
 	}
 
+	/**
+	 * Computes inverse DCT via matrix multiplication.
+	 */
 	static public DoubleMatrix computeDCTinverse(DoubleMatrix m) {
 		DoubleMatrix a= computeTransformationMatrix(m.rows());
 		DoubleMatrix b=a.transpose();

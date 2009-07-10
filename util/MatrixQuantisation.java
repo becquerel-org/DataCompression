@@ -4,10 +4,24 @@ import DataCompression.util.DoubleMatrix;
 
 public class MatrixQuantisation {
 
+	/**
+	 * Round double to int.
+	 */
 	static private int doubleToInt(double x) {
 		return (int)((x*100));
 	}
 
+	/**
+	 * Inverse to doubleToInt
+	 */
+	static private double intToDouble(int i) {
+		return ((double)i)/100;
+	}
+
+	/**
+	 * Transform each entry of data to an int and divide by
+	 * corresponding entry in quant.
+	 */
 	static public int[][] pack(DoubleMatrix data, int[][] quant) {
 		int[][] ret =  new int[data.rows()][data.columns()];
 		
@@ -21,6 +35,9 @@ public class MatrixQuantisation {
 		return ret;
 	}
 
+	/**
+	 * Compute inverse to pack.
+	 */
 	static public DoubleMatrix unpack(int[][] data, int[][] quant) {
 		DoubleMatrix ret = new DoubleMatrix(data.length,data[0].length);
 

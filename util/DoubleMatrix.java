@@ -19,6 +19,9 @@ public class DoubleMatrix {
 		init(rows,columns);
 	}
 
+	/**
+	 * Creates a square matrix of size n times n.
+	 */
 	public DoubleMatrix(int n) {
 		init(n,n);
 	}
@@ -41,10 +44,16 @@ public class DoubleMatrix {
 
 	// Accessors
 	
+	/**
+	 * Returns the number of rows.
+	 */
 	public int rows() {
 		return this.rows;
 	}
 
+	/**
+	 * Returns the number of columns.
+	 */
 	public int columns() {
 		return this.columns;
 	}
@@ -52,14 +61,23 @@ public class DoubleMatrix {
 
 	// Methods
 
+	/**
+	 * Returns entry [i,j].
+	 */
 	public double at(int row, int column) throws IndexOutOfBoundsException {
 		return data[row][column];
 	}
 
+	/**
+	 * Sets entry [i,j] to value.
+	 */
 	public void set(int row, int column, double value) throws IndexOutOfBoundsException {
 		data[row][column]=value;
 	}
 
+	/**
+	 * Returns the transposed matrix of this.
+	 */
 	public DoubleMatrix transpose() {
 		DoubleMatrix ret = new DoubleMatrix(columns, rows);
 		for (int i=0; i<rows; i++) {
@@ -70,6 +88,9 @@ public class DoubleMatrix {
 		return ret;
 	}
 
+	/**
+	 * Computes the product of this times oth.
+	 */
 	public DoubleMatrix multiply(DoubleMatrix oth) throws DimensionException {
 		if (columns!=oth.rows) {
 			throw new DimensionException(DimensionException.multiplicationError(rows,columns,oth.rows,oth.columns));
@@ -107,7 +128,6 @@ public class DoubleMatrix {
 	}
 
 	
-
 	public boolean equals(DoubleMatrix oth) {
 		if ((rows!=oth.rows) && (columns!=oth.columns))
 			return false;
