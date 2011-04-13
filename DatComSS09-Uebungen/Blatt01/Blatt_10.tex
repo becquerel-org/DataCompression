@@ -1,0 +1,76 @@
+\documentclass[a4paper]{article}
+
+\usepackage[german]{babel}
+\usepackage{umlaut}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage{color}
+\usepackage[latin1]{inputenc}
+\usepackage[margin=2.5cm]{geometry}
+\def\header#1#2#3{\pagestyle{empty}
+\noindent
+\begin{minipage}[t]{0.6\textwidth}
+\begin{flushleft}
+\bf \"Ubungen zur Informatik III\\
+WSI f\"ur Informatik\\
+Lange/Behle/Krebs
+\end{flushleft}
+\end{minipage}
+\begin{minipage}[t]{0.4\textwidth}
+\begin{flushright}
+\bf Wintersemester 2008/09\\
+Universit\"at T\"ubingen\\
+#2 %Datum eintragen
+\end{flushright}
+\end{minipage}
+
+\begin{center}
+{\Large\bf Blatt #1}
+
+{(Abgabe am #3)}
+\end{center}
+\bigskip
+}
+
+
+
+\begin{document}
+
+\header{10}{15.1.2009}{22.1.2009}
+
+\bigskip
+\noindent{\bf Aufgabe 1 \quad 2 Punkte}\\
+Gegeben eine Sprache $L\subseteq\{a,b,c,\ldots,z\}^*$, wobei $L$ aus genau 7 W"ortern der L"ange 5 besteht. Geben Sie m"oglichst gute Absch"atzungen f"ur die maximale und minimale Anzahl der Zust"ande des vollst"andigen, deterministischen Minimalautomaten an, der $L$ erkennt.
+
+
+\bigskip
+\noindent{\bf Aufgabe 2 \quad 2 Punkte}\\
+Spieler 1 und Spieler 2 spielen ein Tennismatch.
+Die W\"orter sind also aus $\{1,2\}^*$, wobei eine 1 bedeutet, dass Spieler 1 einen Punkt macht und 2, dass Spieler 2 einen Punkt macht.
+
+Geben Sie den Minimalautomaten an, der genau die Punktfolgen akzeptiert, die ein Spiel kennzeichnen, das von Spieler 1 gewonnen wird und beweisen Sie dessen Minimalit"at.
+
+\bigskip
+{\em Hinweis:} Z"ahlweise beim Tennis ist zun"achst 0,15,30,40. Wenn ein Spieler 40 Punkte hat, einen Punkt macht und sein Gegner nicht 40 Punkte hat, so hat der Spieler gewonnen. Steht es 40:40 und Spieler $i$ macht einen Punkt, so steht es ''Advantage $i$''. Macht der Spieler $i$ dann einen Punkt, so hat er gewonnen, macht sein Gegner einen Punkt, so steht es ''Deuce''. Macht Spieler $i$ einen Punkt, so steht es wieder ''Advantage $i$''.
+
+
+\bigskip
+\noindent{\bf Aufgabe 3 \quad 5 Punkte}\\
+Geben Sie an, welche Sprachen "uber dem Alphabet $\{0,1\}$ von einem deterministischen Automaten mit maximal zwei Zust"anden erkannt werden k"onnen.
+
+\bigskip
+\noindent{\bf Aufgabe 4 \quad 3 Punkte}\\
+Sei $L$ eine Sprache, deren Minimalautomat $r$ Zust"ande hat. Beweisen Sie, dass es keinen NFA mit weniger als $\log_2 r$ Zust"anden gibt, der $L$ erkennt.
+
+\bigskip
+\noindent{\bf Aufgabe 5 \quad 6 Punkte}\\
+Zeigen Sie, erkennt ein DFA die Sprache $L_i$, so hat er mindestens 5 Zust"ande.
+\begin{enumerate}
+\item $L_1=a^*b^*a^*b^*a^*b^*a^*b^*a^*$
+\item $L_2=(aaaaaa)^*$
+\item $L_3=ab^*|bc^*|cd^*|de^*$.
+\end{enumerate}
+
+\end{document}
+
+

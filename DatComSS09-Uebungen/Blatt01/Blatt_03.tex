@@ -1,0 +1,91 @@
+\documentclass[a4paper]{article}
+
+\usepackage[german]{babel}
+\usepackage{umlaut}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage[latin1]{inputenc}
+
+\def\header#1#2#3{\pagestyle{empty}
+\noindent
+\begin{minipage}[t]{0.6\textwidth}
+\begin{flushleft}
+\bf \"Ubungen zur Informatik III\\
+WSI f\"ur Informatik\\
+Lange/Behle/Krebs
+\end{flushleft}
+\end{minipage}
+\begin{minipage}[t]{0.4\textwidth}
+\begin{flushright}
+\bf Wintersemester 2007/08\\
+Universit\"at T\"ubingen\\
+#2 %Datum eintragen
+\end{flushright}
+\end{minipage}
+
+\begin{center}
+{\Large\bf Blatt #1}
+
+{(Abgabe am #3)}
+\end{center}
+}
+
+\begin{document}
+\header{3}{6.11.2006}{13.11.2006}
+
+
+In den folgenden Aufgaben verwenden wir Turingmaschinen "uber dem Eingabealphabet $\Sigma=\{0,1,\#\}$. Wir kodieren dabei ein Tuple $a_1,a_2,\dots,a_n$ von nat"urlichen Zahlen (die 0 ist hier eine nat"urliche Zahl) als die Zeichenfolge $$\#un(a_1)\#un(a_2)\#\dots\#un(a_n)\#$$ Dabei ist $un(a_i)$ die Un"arkodierung von $a_i$, d.h. $un(a_i)=1^{a_i}$. 
+
+Ein Turingmaschine berechnet eine partielle Funktion $f:\mathbb{N}^n\rightarrow \mathbb{N}^m$, wenn die Turingmaschine auf der Kodierung eines Tuples $T$ genau dann h"alt, wenn die Funktion $f$ f"ur dieses Tuple $A$ definiert ist. Dabei soll die Ausgabe die Kodierung von $f(A)$ sein.
+
+\begin{center}
+\fbox {
+\begin{minipage}{1.0\linewidth}
+Alle Turingmaschinen m"ussen grunds"atzlich auf ihre Korrektheit untersucht werden. 
+Steht in der Aufgabenstellung etwas von \glqq beweisen Sie\grqq $\;$ oder \glqq Beweis\grqq , dann erwarten wir hier einen
+formalen Beweis. Ansonsten reicht eine nat"urlichsprachliche Begr"undung oder Argumentation aus. 
+
+Kommentieren Sie in allen F"allen Ihr Arbeitsalphabet, Ihre Zust"ande und "Ubergangsrelation und geben Sie grob die Funktionsweise Ihrer Turingmaschine an. Falls die Funktion der Turingmaschine nicht leicht verst"andlich ist, wird die Aufgabe mit 0 Punkten bewertet.
+\end{minipage}
+}
+\end{center}
+
+\bigskip
+\bigskip
+
+
+\noindent{\bf Aufgabe 1  \quad 8 Punkte}\\
+Geben Sie jeweils eine Turingmaschine an, die folgende partielle Funktion berechnet:
+\begin{enumerate}
+\item inc$(x)=x+1$, 
+\item dec$(x)=x-1$, falls $x>0$, sonst undefiniert,
+\item $\delta_1(x,y)=x$,
+\item $\delta_2(x,y)=y$,
+\item $\iota_1(x)=(0,x)$,
+\item $\iota_2(x)=(x,0)$,
+\item zero$(x)=0$, falls $x=0$, sonst undefiniert,
+\item iff$(x)=0$, falls $x=0$, und $iff(x)=1$, falls $x>0$,
+\end{enumerate}
+\bigskip
+
+\newpage
+
+
+\noindent{\bf Aufgabe 2  \quad 3 Punkte}\\
+Geben Sie eine Turingmaschine an, die als Eingabe ein Tuple $a_1,\dots,a_n$, $n>0$ bekommt und als Ausgaben $\sum_{i=1}^n a_i$ ausgibt.
+
+\bigskip
+
+\noindent{\bf Aufgabe 3  \quad 3 Punkte}\\
+Geben Sie eine Turingmaschine an, die als Eingabe $\#bin(a)\#$ bekommt und $\#un(a)\#$ ausgibt. Dabei ist $bin(a)$ die Bin\"arkodierung von $a$ (MSB first, keine f"uhrende Nullen).
+
+\bigskip
+
+\noindent{\bf Aufgabe 4  \quad 4 Punkte}\\
+Angenommen $T$ ist eine Turingmaschine die eine injektive totale Funktion $f:\mathbb{N}^n\rightarrow\mathbb{N}^m$ berechnet. Geben Sie eine Konstruktion f"ur die Turingmaschine an, die die inverse Funktion $f^{-1}$ von $f$ berechnet. 
+
+\bigskip
+
+\end{document}
+
+

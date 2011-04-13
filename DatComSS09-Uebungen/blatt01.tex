@@ -1,0 +1,94 @@
+\documentclass[a4paper]{article}
+
+\usepackage[german]{babel}
+%\usepackage{umlaut}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage[latin1]{inputenc}
+
+\def\header#1#2#3#4{\pagestyle{empty}
+\noindent
+\begin{minipage}[t]{0.6\textwidth}
+\begin{flushleft}
+\bf \"Ubungen zur Datenkompression\\
+WSI f\"ur Informatik\\
+Lange/Krebs (Behle)
+\end{flushleft}
+\end{minipage}
+\begin{minipage}[t]{0.4\textwidth}
+\begin{flushright}
+\bf Sommersemester 2009\\
+Universit\"at T\"ubingen\\
+#2 %Datum eintragen
+\end{flushright}
+\end{minipage}
+
+\begin{center}
+{\Large\bf Blatt #1}
+
+{(Abgabe am #3)}
+\end{center}
+}
+
+\begin{document}
+\header{1}{30.04.2009}{5.5.2009}{}
+
+Beachten Sie bitte die Hinweise zu den "Ubungen auf der R"uckseite!
+
+\bigskip
+
+{\bf Aufgabe 1  \quad(Entropie)}\\
+Eine Informationsquelle sende Buchstaben aus dem Alphabet $\Sigma=\{a,b,c,d,e\}$ mit den Wahrscheinlichkeiten $P(a)=0,15$, $P(b)=0,04$, $P(c)=0,26$, $P(d)=0,05$ und $P(e)=0,5$.
+\begin{enumerate}
+\item Berechnen Sie die Entropie der Quelle!
+\item Bestimmen Sie einen Huffmann-Code f"ur diese Quelle per Hand!
+\end{enumerate}
+
+\bigskip
+
+{\bf Aufgabe 2  \quad(Programmieraufgaben)}\\
+Bitte beachten Sie die Hinweise zu den Programmieraufgaben.
+
+\smallskip
+Schreiben Sie Routinen, die folgende Aufgaben erf"ullen:
+\begin{enumerate}
+\item Einfache Statistik: Gibt an, welche Bytes in einer Datei vorkommen und wie oft jedes Byte vorkommt.
+\item Entropie: Eingabe eine Liste von Zeichenh"aufigkeiten einer Quelle, Ausgabe die Entropie der Quelle.
+\item Entropie: Berechnet die Entropie einer Datei, wobei als Zeichen Bytes verwendet werden.
+\item(*) Erweitern Sie obige Routinen, so dass sie auch mit Alphabete von $n$ Bytes arbeiteten. Hat die Eingabe nicht eine L"ange, die ein vielfaches von $n$ ist, so padden sie sie mit 0-Bytes.
+\end{enumerate}
+
+
+\bigskip
+
+{\bf Aufgabe 3  \quad(Empirische Tests)}\\
+\begin{enumerate}
+\item(*) Generieren Sie eine Datei, bei der der Kompressionsquotient gr"o{\ss}er als 1 ist!
+\item\label{a} Laden sie die Beispieldateien zum "Ubungsblatt herunter und nutzen Sie Ihr Programm um die Entropien der Dateien byteweise zu ermitteln!
+\item Berechnen Sie mit Hilfe der Entropie die erwarteten minimalen Codel"angen der \verb$*.tex$-Dateien. Wenden sie ein Programm wie \verb$gzip$ auf diese Dateien an und Vergleichen sie deren Gr"o{\ss}e mit der erwarteten minimalen Codel"ange.
+
+Interpretieren Sie das Ergebnis!
+\item(*) Ermitteln Sie die Entropien der Dateien aus Teil \ref{a} f"ur Alphabetgr"o{\ss}en \`a 3 und 3 Byte!
+\end{enumerate}
+
+\bigskip 
+{\bf Link zu den \"Ubungen:}\\
+\verb$http://www-fs.informatik.uni-tuebingen.de/lehre/ss09/datkom/uebungen.shtml$
+
+\newpage
+
+{\bf Programmieraufgaben}\\
+Die f"ur die Programmieraufgaben vorgesehene Programmiersprache ist Java. Wenn Sie die "Ubungen in einer anderen Programmiersprache abgeben wollen, so wenden Sie sich an den Betreuer der "Ubungsgruppen.
+
+Allgemein: Die Abgaben erfolgen elektronisch in Form von gut dokumentiertem und compilierf"ahigen Quellcode.
+
+Sofern nicht anders angegeben, sollen die geforderten Programme die zu bearbeitende Datei als ersten Kommandozeilenparameter erhalten.
+
+Die auf diesem Blatt erstellten Routinen werden in den weiteren "Ubungen gebraucht werden. Erstellen Sie die in Aufgabe 2 geforderten Aufgaben in Biblotheksform und erstellen Sie mit deren Hilfe die f"ur Aufgabe 3 geforderten Programme.
+
+Nutzen Sie f"ur das Einlesen der Datei in Java die Klasse \verb$FileInputStream$, um die Datei in Form von Bytes zu einzulesen.
+
+Unter Windows k"onnen die Ergebnisse wegen der unterschiedlichen Darstellung des Zeilenendeymbols abweichen.
+\end{document}
+
+

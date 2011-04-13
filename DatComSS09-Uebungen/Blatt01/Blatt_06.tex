@@ -1,0 +1,83 @@
+\documentclass[a4paper]{article}
+
+\usepackage[german]{babel}
+\usepackage{umlaut}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage[latin1]{inputenc}
+\usepackage[margin=2.5cm]{geometry}
+\def\header#1#2#3{\pagestyle{empty}
+\noindent
+\begin{minipage}[t]{0.6\textwidth}
+\begin{flushleft}
+\bf \"Ubungen zur Informatik III\\
+WSI f\"ur Informatik\\
+Lange/Behle/Krebs
+\end{flushleft}
+\end{minipage}
+\begin{minipage}[t]{0.4\textwidth}
+\begin{flushright}
+\bf Wintersemester 2008/09\\
+Universit\"at T\"ubingen\\
+#2 %Datum eintragen
+\end{flushright}
+\end{minipage}
+
+\begin{center}
+{\Large\bf Blatt #1}
+
+{(Abgabe am #3)}
+\end{center}
+}
+
+
+
+\begin{document}
+\header{6}{27.11.2008}{4.12.2008}
+
+\bigskip
+
+\noindent{\bf Aufgabe 1  \quad 6 Punkte}\smallskip\\
+Zeigen oder widerlegen Sie folgende Aussagen. Skizzieren Sie also entweder einen Algorithmus oder zeigen Sie durch Reduktion des Halteproblems die Unentscheidbarkeit.
+\begin{enumerate}
+\item(1 Punkt) Es ist entscheidbar, ob ein LOOP-Programm terminiert.
+\item(1 Punkt) Es ist entscheidbar, ob ein LOOP-Programm mit Eingabe 0 mit dem Wert 0 terminiert.
+\item(2 Punkte) Es ist entscheidbar, ob eine $\mu$-rekursive Funktion f"ur die Eingabe $0$ definiert ist und den Wert $0$ hat.
+\item(2 Punkte) F"ur ein Zeichen $s$, ist es entscheidbar, ob eine Turingmaschine auf dem leeren Band gestartet irgendwann das Zeichen $s$ auf das Band schreibt.
+\end{enumerate}
+
+\bigskip
+\noindent{\bf Aufgabe 2  \quad 6 Punkte}\smallskip\\
+Beantworten Sie folgende Fragen mit Begr"undung. Skizzieren Sie also entweder einen Algorithmus oder zeigen Sie durch Reduktion des Halteproblems die Unentscheidbarkeit.
+\begin{enumerate}
+\item(2 Punkte) Gibt es eine feste Turingmaschine $M$ f"ur die das Halteproblem, das heisst die Sprache $H_M=\{w\in\Sigma^*\mid M\mbox{ angesetzt auf $w$ h"alt}\}$,
+\begin{itemize}
+\item Entscheidbar ist?
+\item Unentscheidbar ist?
+\end{itemize}
+\item(2 Punkte) Gibt es eine feste Eingabe $x$, so dass die Frage, ob eine Turingmaschine auf $x$ h"alt:
+\begin{itemize}
+\item Entscheidbar ist?
+\item Unentscheidbar ist?
+\end{itemize}
+\item(2 Punkte) Gibt es eine feste Turingmaschine $M$ und eine feste Eingabe $x$, so dass das die Frage ob $M$ auf $x$ h"alt:
+\begin{itemize}
+\item Entscheidbar ist?
+\item Unentscheidbar ist?
+\end{itemize}
+\end{enumerate}
+
+\bigskip
+
+\noindent{\bf Aufgabe 3  \quad 6 Punkte}\smallskip\\
+Geben Sie f"ur folgende Fragestellungen an, ob sie rekursiv aufz"ahlbar oder nicht rekursiv aufz"ahlbar sind. Begr"unden Sie Ihre Aussage, skizzieren Sie also entweder einen Algorithmus oder zeigen Sie durch Reduktion des Komplement des Halteproblems, dass das Problem nicht aufz"ahlbar ist.
+\begin{enumerate}
+\item Eingabe das leere Wort, erreicht eine Turingmaschine Zustand $x$.
+\item Eingabe das leere Wort, erreicht eine Turingmaschine nie Zustand $x$.
+\item Eingabe das leere Wort, erreicht eine Turingmaschine Zustand $x$ unendlich oft.
+\item Eingabe das leere Wort, erreicht eine Turingmaschine Zustand $x$ endlich oft.
+\end{enumerate}
+
+\end{document}
+
+

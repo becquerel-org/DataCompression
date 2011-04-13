@@ -1,0 +1,123 @@
+\documentclass[a4paper]{article}
+
+\usepackage[german]{babel}
+\usepackage{umlaut}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage[latin1]{inputenc}
+
+\def\header#1#2#3{\pagestyle{empty}
+\noindent
+\begin{minipage}[t]{0.6\textwidth}
+\begin{flushleft}
+\bf \"Ubungen zur Informatik III\\
+WSI f\"ur Informatik\\
+Lange/Behle/Krebs
+\end{flushleft}
+\end{minipage}
+\begin{minipage}[t]{0.4\textwidth}
+\begin{flushright}
+\bf Wintersemester 2007/08\\
+Universit\"at T\"ubingen\\
+#2 %Datum eintragen
+\end{flushright}
+\end{minipage}
+
+\begin{center}
+{\Large\bf Blatt #1}
+
+{(Abgabe am #3)}
+\end{center}
+}
+
+\begin{document}
+\header{1}{23.10.2006}{30.10.2006}
+
+
+\bigskip
+
+Die Aufgaben A-D m\"ussen Sie m\"undlich in Ihrer 1. \"Ubungsstunde vorrechnen k\"onnen. Eine schriftliche Abgabe ist nicht n\"otig.
+Die Aufgaben 1-4 geben Sie bitte am 30.10.2006 {\bf vor Beginn} der Vorlesung ab.
+
+\bigskip
+
+\noindent{\bf Aufgabe A  \quad(Mengen)}\\
+Gegeben die Mengen $A = \{a,b,c\}$ und $B = \{a,c,x,y,z\}$.
+\begin{enumerate}
+\item Geben Sie die Mengen $A\cap B, A\cup B, A\setminus B$ und
+$A \triangle B=(A\setminus B) \cup (B\setminus A)$ an.
+\item Geben Sie die Potenzmenge ${\cal P}(A)$ an.
+\item Geben Sie das kartesische Produkt $A\times B$ an.
+\end{enumerate}
+
+\bigskip
+
+\noindent{\bf Aufgabe B  \quad(Sprachen)}\\
+Sei $\Sigma=\{a,b\}$.
+\begin{enumerate}
+\item Geben sie alle Worte in $\Sigma^*$ mit L\"ange kleiner drei an.
+(Oder in Mengenschreibweise: Geben Sie die Elemente von $L=\{w\in\Sigma^*\mid |w|<3\}$ an.)
+\item Geben Sie $\Sigma^2$ an.
+\end{enumerate}
+Siehe Anhang im Sch\"oning.
+
+\bigskip
+
+\noindent{\bf Aufgabe C  \quad(Analyse von Grammatiken)}\\
+Beschreiben Sie die, durch die folgenden Grammatiken definierten, Sprachen.
+\begin{enumerate}
+\item $G=(\{A,B,S\},\{a,b\}, P, S)$, wobei $P=\{S\rightarrow ASB|\lambda, A\rightarrow a, B\rightarrow b\}$.
+\item $G=(\{A,B,S\},\{a,b\}, P, S)$, wobei $P=\{S\rightarrow AAS|SB|\lambda, AB\rightarrow BA,BA\rightarrow AB, A\rightarrow a, B\rightarrow b\}$.
+\item $G=(\{A,B,S,T\},\{a,b\}, P, S)$, wobei $P=\{S\rightarrow AT|BS|\lambda,T\rightarrow BT|AS , A\rightarrow a, B\rightarrow b\}$.
+\end{enumerate}
+
+\bigskip
+
+\noindent{\bf Aufgabe D  \quad(\"Aquivalenzrelation)}\\
+Zeigen Sie dass die \"Aquivalenzklassen jeder \"Aquivalenzrelation eine Partion bilden.
+
+
+\newpage
+
+\noindent{\bf Aufgabe 1  \quad 3 Punkte}\\
+Beweisen Sie, dass die folgenden Aussagen korrekt sind:
+\begin{enumerate}
+\item $LL^*=L^*L$
+\item $(L_1\cup L_2)^*\neq L_1^*\cup L_2^*$
+\item $\left(\Sigma^*\setminus L_1\right)^*\neq \Sigma^*\setminus L_1^*$
+\end{enumerate}
+
+\bigskip
+
+
+\noindent{\bf Aufgabe 2  \quad 2+2+2 Punkte}
+\begin{enumerate}
+\item Zeigen Sie, dass die Menge der Worte \"uber einem Alphabet $\Sigma$ abz\"ahlbar ist.
+\item Zeigen Sie, dass die Menge der Sprachen \"uber einem Alphabet $\Sigma$ \"uberabz\"ahlbar ist.
+\item Was folgt daraus f\"ur die Beschreibung von Sprachen durch Grammatiken?\\
+Wieviele Grammatiken gibt es? Was folgt daraus f\"ur die Beschreibarkeit von Sprachen?
+\end{enumerate}
+
+\bigskip
+
+\noindent{\bf Aufgabe 3  \quad 4 Punkte}
+\begin{enumerate}
+\item Geben Sie eine Grammatik an die alle arithmetischen Ausdr\"ucke, die aus ganzen Zahlen $\{\dots,-3,-2,-1,0,1,2,3,\dots\}$ und den Operatoren $+,-,
+*,/$ besteht sowie Klammern $(,)$ enthalten kann, beschreibt.
+\item Falls n\"otig ver\"andern Sie Ihre Grammatik so, dass Sie eindeutig ist, d.h. zu jedem Wort gibt es genau einen Ableitungsbaum.
+\end{enumerate}
+
+\bigskip
+
+\noindent{\bf Aufgabe 4  \quad 5 Punkte}\\
+Ein Pr"afixcode ist ein Code, bei dem kein Codewort der Anfang eines anderen Codeworts ist. Betrachten Sie im Folgenden Codes "uber dem bin"aren Alphabet $\{0,1\}$.
+\begin{enumerate}
+\item Geben Sie eine einfache Methode an, einen Pr"afixcode mit $k$ Codeworten zu erzeugen. (Hinweis: Warum ist z.B. der ASCII-Code ein Code?)
+\item "Uberlegen Sie, wie Sie mit Hilfe von Bin"arb"aumen Pra"fixcodes erzeugen k"onnen.
+\end{enumerate}
+
+\bigskip
+
+\end{document}
+
+

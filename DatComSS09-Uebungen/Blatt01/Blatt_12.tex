@@ -1,0 +1,92 @@
+\documentclass[a4paper]{article}
+
+\usepackage[german]{babel}
+%\usepackage{umlaut}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage[latin1]{inputenc}
+\usepackage[margin=2.5cm]{geometry}
+\def\header#1#2#3{\pagestyle{empty}
+\noindent
+\begin{minipage}[t]{0.6\textwidth}
+\begin{flushleft}
+\bf \"Ubungen zur Informatik III\\
+WSI f\"ur Informatik\\
+Lange/Behle/Krebs
+\end{flushleft}
+\end{minipage}
+\begin{minipage}[t]{0.4\textwidth}
+\begin{flushright}
+\bf Wintersemester 2008/09\\
+Universit\"at T\"ubingen\\
+#2 %Datum eintragen
+\end{flushright}
+\end{minipage}
+
+\begin{center}
+{\Large\bf Blatt #1}
+
+{(Abgabe am #3)}
+\end{center}
+\bigskip
+}
+
+
+
+\begin{document}
+
+\header{12}{29.1.2009}{5.2.2009}
+
+\bigskip
+
+
+\noindent
+{\bf Aufgabe 1 \quad(Komplexit"atsklassen)\quad 3 Punkte}\\[1ex]
+Unter der Annahme, dass $P\neq NP$, geben Sie eine Sprache $L$ an, die in $NP$ und nicht in $P$ liegt. Begr"unden Sie!
+
+\bigskip
+
+\noindent
+{\bf Aufgabe 2  \quad(Independent Set)\quad 4 Punkte}\\[1ex]
+
+\noindent $k$-INDEPENDENT SET
+
+\noindent {\em gegeben:} Ein ungerichteter Graph $G=(V,E)$.
+
+\noindent {\em gefragt:} Gibt es $k$ unverbundene Knoten, d.h. Knoten  $v_1,\dots v_k$ in $V$, so dass f"ur \linebreak alle $v_i,v_j$ ($i\neq j\in\{1,\dots,k\}$) gilt $\{v_i,v_j\}\notin E$.
+
+\bigskip
+
+\noindent Gegeben zwei Zahlen $k_1\leq k_2$, reduzieren Sie $k_1$-INDEPENDENT SET auf $k_2$-INDEPENDENT SET.
+
+\bigskip
+
+\noindent
+{\bf Aufgabe 3 \quad(Reduktion)\quad 6 Punkte}\\[1ex]
+Reduzieren das Problem $k$-INDEPENDET SET f"ur Graphen mit $|V|$ gerade auf das Problem $|V|/2$-INDEPENDENT SET. Betrachten Sie folgende F"alle:
+\begin{enumerate}
+\item $k=n/2$.
+\item $k<n/2$.
+\item $k>n/2$.
+\end{enumerate}
+
+
+\bigskip
+
+\noindent{\bf Aufgabe 4  \quad(Reduktion)\quad 5 Punkte}\\[1ex]
+
+\noindent DOMINATING SET
+
+\noindent {\em gegeben:} Ein ungerichteter Graph $G=(V,E)$ und $k\in\mathbb{N}$.
+
+\noindent {\em gefragt:} Gibt es eine Menge $U\subseteq V$ mit $|U|=k$, so dass f"ur alle
+$g\in V\setminus U$ es einen Knoten $v\in U$ gibt mit $\{g,v\}\in E$.
+
+\bigskip
+
+Reduzieren Sie das Problem DOMINATING SET auf KNOTENÜBERDECKUNG und umgekehrt.
+
+
+\end{document}
+
+

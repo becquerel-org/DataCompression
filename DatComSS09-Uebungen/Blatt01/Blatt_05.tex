@@ -1,0 +1,112 @@
+\documentclass[a4paper]{article}
+
+\usepackage[german]{babel}
+\usepackage{umlaut}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage[latin1]{inputenc}
+\usepackage[margin=2.5cm]{geometry}
+\def\header#1#2#3{\pagestyle{empty}
+\noindent
+\begin{minipage}[t]{0.6\textwidth}
+\begin{flushleft}
+\bf \"Ubungen zur Informatik III\\
+WSI f\"ur Informatik\\
+Lange/Behle/Krebs
+\end{flushleft}
+\end{minipage}
+\begin{minipage}[t]{0.4\textwidth}
+\begin{flushright}
+\bf Wintersemester 2008/09\\
+Universit\"at T\"ubingen\\
+#2 %Datum eintragen
+\end{flushright}
+\end{minipage}
+
+\begin{center}
+{\Large\bf Blatt #1}
+
+{(Abgabe am #3)}
+\end{center}
+}
+
+
+
+\begin{document}
+\header{5}{20.11.2008}{27.11.2008}
+
+\bigskip
+Versuchen Sie in diesem Blatt, Ihre Beweise formal korrekt aufzuschreiben. Bei einem Beweis der eine Konstruktion enth"alt ist auch die Korrektheit der Konstruktion zu zeigen.
+
+$\mathbb{N}$ enth"alt die $0$.
+\bigskip
+
+\noindent{\bf Aufgabe 1  \quad 4 Punkte}\\
+Ein $k$-stelliges Pr"adikat ist eine Teilmenge des $\mathbb{N}^k$.
+Ein Pr"adikat ist primitiv rekursiv, falls seine charakteristische Funktion primitiv rekursiv ist.
+Beweisen Sie folgende Aussagen:
+\begin{enumerate}
+\item Die primitiv rekursiven Pr"adikate sind unter boolschen Operationen abgeschlossen.
+\item Falls $P(x,y)$ primitiv rekursiv ist, sind auch $P'(x,z):\Leftrightarrow\exists y: y\leq z\land P(x,y)$ und $P''(x,z):\Leftrightarrow\forall y: y\leq z\rightarrow  P(x,y)$ primitiv rekursiv.
+\end{enumerate}
+\bigskip
+
+
+\noindent{\bf Aufgabe 2  \quad 5 Punkte}\\
+Die beschr"ankte $\mu$-Rekursion ($\tilde\mu$) ist wiefolgt definiert:
+Ist $f:\mathbb{N}^{k+1}\rightarrow \mathbb{N}$ eine Funktion, so ergibt sich durch Anwendung des $\tilde\mu$-Operators die Funktion $g:\mathbb{N}^{k+1}\rightarrow \mathbb{N}$ mit $$g(x,x_1,\ldots,x_k)=\left\{
+\begin{array}{ll}
+0,&\mbox{es gibt kein $n\leq x$, so dass }f(n,x_1,\ldots,x_k)=0\\
+\mu f,&\mbox{sonst}
+\end{array}\right.$$
+
+Beweisen Sie, dass die primitv rekursiven Funktionen unter Anwendung des beschr\"ankten $\mu$-Rekursion abgeschlossen sind. Also: Ist $f$ primitiv rekursiv, dann ist auch $\tilde\mu f$ primitiv rekursiv.
+\bigskip
+
+\noindent{\bf Aufgabe 3  \quad 5 Punkte}\\
+Statt der gew"ohnlichen primitiven Rekursion betrachten wir folgendes Rekursionsschema:
+\begin{eqnarray*}
+f(0,x_1,\ldots,x_k)&=&g(x_1,\ldots,x_k)\\
+f(n+1,x_1,\ldots,x_k)&=&h(f(n,x_1,\ldots,x_k),x_1,\ldots,x_k)
+\end{eqnarray*}
+
+Zeigen Sie: Sind $g$ umd $h$ jeweils primitiv rekursive Funktionen, so ist auch das durch obiges Rekursionsschema definierte $f$ primitiv rekursiv.
+
+\bigskip
+\noindent{\bf Aufgabe 4  \quad 4 Punkte}\\
+Die Menge der elementaren Funktionen ist gegeben durch folgende Grundfunktionen:
+\begin{enumerate}
+\item Alle konstanten Funktionen $c^1_i$ sind elementar, sowie alle Projektionen $\pi^k_i$ ($i\leq k$).
+\item Die Funktionen $+$ und $*$ mal sind elementar, ebenso ist $\dot-$ ist elementar, wobei $\dot-$ wiefolgt definiert:\\
+$a\dot-b=\left\{
+\begin{array}{ll}
+a-b,&a\geq b\\
+0,&\mbox{sonst}
+\end{array}\right.$
+\item Jede Funktion die durch Einsetzung (Komposition) von elementaren Funktionen ensteht, ist selber auch elementar.
+\item Des weiteren ist zu einer elementaren Funktion $f(x,x_1,\ldots,x_k)$ auch die Funktionen elementar, die durch folgende Rekursionsschemata entstehen:\\
+$\begin{array}{lll}
+\mbox{Die beschr"anke Summation:} &\sum f(n,x_1,\ldots,x_k)&=\sum_{i=1}^n f(i,x_1,\ldots,x_k)\\
+\mbox{Die beschr"anke Multiplikation:} &\prod f(n,\ldots)&=\prod_{i=1}^n f(n,x_1,\ldots,x_k)
+\end{array}$
+\end{enumerate}
+
+Zeigen Sie die Menge der elementaren Funktionen ist in der Menge der primitiv Rekursiven Funktionen enthalten.
+
+\newpage
+\header{3B}{20.11.2008}{04.11.2008}
+
+\noindent{\bf Aufgabe 1} \smallskip\\
+Geben Sie zwei elemntare Funktionen an, die das Tuppeln von nat"urlichen Zahlen erlauben.
+Also geben Sie eine injektive Funktion $f:\mathbb{N}^2\rightarrow\mathbb{N}$ an und Funktionen $g_1:\mathbb{N}\rightarrow\mathbb{N}$ und $g_2:\mathbb{N}\rightarrow\mathbb{N}$, so dass $(g_1(f(a,b)),g_2(f(a,b))=(a,b)$ f"ur $a,b\in\mathbb{N}$.
+
+
+\bigskip
+\noindent{\bf Aufgabe 2} \smallskip\\
+Zeigen Sie, dass die Menge der elementaren Funktionen echt in der Menge der primitiv rekursiven Funktionen enthalten ist.
+
+Hinweis: Betrachten Sie die Funktion $f(n)=\underbrace{2^{2^{\dots^2}}}_{n\mbox{-mal}}$
+
+\end{document}
+
+

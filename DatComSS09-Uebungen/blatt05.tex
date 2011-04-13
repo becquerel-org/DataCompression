@@ -1,0 +1,55 @@
+\documentclass[a4paper]{article}
+
+\usepackage[german]{babel}
+%\usepackage{umlaut}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage{fullpage}
+\usepackage[latin1]{inputenc}
+
+\def\header#1#2#3#4{\pagestyle{empty}
+\noindent
+\begin{minipage}[t]{0.6\textwidth}
+\begin{flushleft}
+\bf \"Ubungen zur Datenkompression\\
+WSI f\"ur Informatik\\
+Lange/Krebs (Behle)
+\end{flushleft}
+\end{minipage}
+\begin{minipage}[t]{0.4\textwidth}
+\begin{flushright}
+\bf Sommersemester 2009\\
+Universit\"at T\"ubingen\\
+#2 %Datum eintragen
+\end{flushright}
+\end{minipage}
+
+\begin{center}
+{\Large\bf Blatt #1}
+
+{(Abgabe am #3)}
+\end{center}
+}
+
+\begin{document}
+\header{5}{18.06.2009}{25.06.2009}{}
+
+\bigskip
+
+{\bf Aufgabe 1  \quad(Bildkomprimierung)}\\
+Ziel dieser Aufgabe ist die Komprimierung von Schwarz-Weiss-Bildern.
+
+Laden Sie von der "Ubungsseite das Material f"ur dieses Blatt herunter. Es enth"alt ein {\rm .png}-Schwarz-Weiss-Bild, das Sie komprimieren sollen.
+
+Im GIF-Format reduziert sich die Gr"o{\ss}e von 15012 Bytes des Bildes ($600 \times 200=15000$ Pixel) im PNG-Format auf 11436 Bytes. Schlagen Sie den GIF-Algorithmus. Ihr Algorithmus muss jedoch so gehalten sein, dass er auch auf anderen Schwarz-Weiss-Bildern funktioniert.
+
+Das Material enth"alt zwei Klassen und ein Interface. Das Interface {\rm BWImageReader} stehlt eine die Funktionen {\rm byte getPixel(int i, int j)}, {\rm int getWidth()} und {\rm getHeight()} zur Verf"ugung. Diese erlauben das lesen eines  Schwarz-Weiss-Bildes. {\rm byte getPixel(int i, int j)} gibt Null oder einen Wert gr"o{\ss}er Null zur"uck.
+
+Die Klasse {\rm PNGReader} stellt eine Implementation des Interfaces dar und erlaubt das einlesen von PNG-Bildern.
+
+Die Klasse {\rm BWImageTester} testet zwei Schwarz-Weiss-Bilder auf Gleichheit.
+
+Implementieren zwei Klassen, eine zum Komprimieren des Bildes und eine zum Einlesen des komprierten Bildes. Letztere soll das Interfaces {\rm BWImageReader} implementieren. Benutzen Sie nur Kompressionsalgorithmen, die Sie selbst geschrieben haben, die Benutzung externer Tools ist nicht gestattet.
+
+\end{document}
+

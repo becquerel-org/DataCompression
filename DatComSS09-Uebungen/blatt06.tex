@@ -1,0 +1,88 @@
+\documentclass[a4paper]{article}
+
+\usepackage[german]{babel}
+%\usepackage{umlaut}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage{fullpage}
+\usepackage{hyperref}
+\usepackage[latin1]{inputenc}
+
+\def\header#1#2#3#4{\pagestyle{empty}
+\noindent
+\begin{minipage}[t]{0.6\textwidth}
+\begin{flushleft}
+\bf \"Ubungen zur Datenkompression\\
+WSI f\"ur Informatik\\
+Lange/Krebs (Behle)
+\end{flushleft}
+\end{minipage}
+\begin{minipage}[t]{0.4\textwidth}
+\begin{flushright}
+\bf Sommersemester 2009\\
+Universit\"at T\"ubingen\\
+#2 %Datum eintragen
+\end{flushright}
+\end{minipage}
+
+\begin{center}
+{\Large\bf Blatt #1}
+
+{(Abgabe am #3)}
+\end{center}
+}
+
+\begin{document}
+\header{6}{25.06.2009}{02.07.2009}{}
+
+\bigskip
+
+\noindent
+Das PNG-Format beschreibt f"unf Vorfiltertypen, die auf die Pixel eines Bildes angewendet werden k"onnen, bevor das Bild komprimiert wird.
+
+Siehe auch folgender Link: \url{http://www.gnupdf.org/PNG_and_TIFF_Predictors_Filter}
+\begin{description}
+\item[None] Es findet keine Vorfilterung statt.
+\item[Sub] Es werden die Differenzen zum jeweils linken Pixel betrachtet.
+\item[Up]  Es werden die Differenzen zum jeweils dar"uberliegenden Pixel betrachtet.
+\item[Average] Es wird die Differenz zum Mittelwert des linken und dar"uberliegenden Pixels betrachtet.
+\item[Paeth] Es wird die Differenz zum Paeth-Pr"adiktor betrachtet, der aus dem linken, oberen und schr"ag links oben liegenden Pixel berechnet wird, siehe Link.
+\end{description}
+
+
+\bigskip
+
+
+{\bf Aufgabe 1  \quad(Schwarzweissbilder)}\\
+%\begin{enumerate}
+%\item
+Wenden Sie auf das Bild des letzten "Ubungsblattes die ersten 3 Filtertypen and und vergleichen Sie die Entropie der Ausgaben.
+
+Die Differen wird mit XOR ausgerechnet.
+%\item "Uberlegen Sie sich, einen Pr"adiktor, der aus dem linken, oberen und schr"ag links oben liegenden Pixel, eine Sch"atzwert ermittelt.
+%\end{enumerate}
+
+
+\bigskip
+
+
+{\bf Aufgabe 2  \quad(Farbbilder)}\\
+Laden Sie von der "Ubungsseite das Farbbild herunter.
+Wenden Sie alle 5 Filtertypen auf das Farbbild an und vergleichen Sie die Entropie. 
+
+Denken Sie daran, die Differenzen modulo 256 zu berechnen.
+
+Dazu k"onnen Sie die Klasse {\rm PNGReader} von Blatt 5 benutzen, wenn Sie sie folgenderma{\ss}en adaptieren:
+Die {\rm getPixel}-Funktion gibt jetzt nicht mehr einen {\rm int}, sondern einen Array von 3 Integern zur"uck.
+Die Werte liegen jedoch im Bereich $[0,255]$. 
+
+
+\bigskip
+
+
+{\bf Aufgabe 3  \quad(Relation zischen den Farbkan"alen)\quad (Nur Diplom und Master)}\\
+Berechnen Sie f"ur das Bild aus Aufgabe zwei die bedingten Entropien zwischen je zwei Farbkan"alen und die Entropien der drei Farbkan"ale.
+
+
+\end{document}
+

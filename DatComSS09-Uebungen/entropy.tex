@@ -1,0 +1,56 @@
+\documentclass[a4paper]{article}
+
+\usepackage[german]{babel}
+%\usepackage{umlaut}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage[latin1]{inputenc}
+
+\def\header#1#2#3#4{\pagestyle{empty}
+\noindent
+\begin{minipage}[t]{0.6\textwidth}
+\begin{flushleft}
+\bf \"Ubungen zur Datenkompression\\
+WSI f\"ur Informatik\\
+Lange/Krebs (Behle)
+\end{flushleft}
+\end{minipage}
+\begin{minipage}[t]{0.4\textwidth}
+\begin{flushright}
+\bf Sommersemester 2009\\
+Universit\"at T\"ubingen\\
+#2 %Datum eintragen
+\end{flushright}
+\end{minipage}
+
+\begin{center}
+{\Large\bf Blatt #1}
+
+{(Abgabe am #3)}
+\end{center}
+}
+
+\begin{document}
+%\header{1}{30.04.2009}{5.5.2009}{}
+\noindent
+Sei $\Gamma$ eine Nachrichtenquelle und $P$ die Wahrscheinlichkeitsverteilung von $\Gamma$.
+Sei $H(\Gamma)=\sum_{A\in\Gamma} P(A)\log \frac 1{P(A)}$ die Entropie der Nachrichtenquelle.\\
+Behauptung: Sind die Ereignisse in $\Gamma$ unabh"angig, so gilt $H(\Gamma)=2H(\Gamma^2)$.\\
+Beweis:
+\begin{eqnarray}
+H(\Gamma^2)&&=\sum_{A'\in\Gamma^2} P(A')\log \frac 1{P(A')}\\
+&&=\sum_{A\in\Gamma}\sum_{B\in\Gamma} P(A)P(B)\log \frac 1{P(A)P(B)}\\
+&&=\sum_{A\in\Gamma}\sum_{B\in\Gamma} P(A)P(B)(\log \frac 1{P(A)}+\log \frac 1{P(B)})\\
+&&=\sum_{A\in\Gamma}\sum_{B\in\Gamma} (P(A)P(B)\log \frac 1{P(A)}+P(A)P(B)\log \frac 1{P(B)})\\
+&&=\sum_{A\in\Gamma}\sum_{B\in\Gamma} (P(A)(P(B)\log \frac 1{P(A)})+\sum_{B\in\Gamma}(P(A)P(B)\log \frac 1{P(B)})\\
+&&=\sum_{A\in\Gamma}P(A)\log \frac 1{P(A)}\underbrace{\sum_{B\in\Gamma} P(B)}_{=1}+P(A)\underbrace{\sum_{B\in\Gamma}(P(B)\log \frac 1{P(B)})}_{=H(\Gamma)}\\
+&&=\sum_{A\in\Gamma}P(A)\log \frac 1{P(A)}+P(A)H(\Gamma)\\
+&&=\sum_{A\in\Gamma}P(A)\log \frac 1{P(A)}+\sum_{A\in\Gamma}P(A)H(\Gamma)\\
+&&=H(\Gamma)+H(\Gamma)\sum_{A\in\Gamma}P(A)\\
+&&=H(\Gamma)+H(\Gamma)\\
+&&=2H(\Gamma)
+\end{eqnarray}
+
+\end{document}
+
+

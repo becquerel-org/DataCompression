@@ -1,0 +1,134 @@
+\documentclass[a4paper]{article}
+
+\usepackage[german]{babel}
+\usepackage{umlaut}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage[latin1]{inputenc}
+\usepackage[margin=2.5cm]{geometry}
+\def\header#1#2#3{\pagestyle{empty}
+\noindent
+\begin{minipage}[t]{0.6\textwidth}
+\begin{flushleft}
+\bf \"Ubungen zur Informatik III\\
+WSI f\"ur Informatik\\
+Lange/Behle/Krebs
+\end{flushleft}
+\end{minipage}
+\begin{minipage}[t]{0.4\textwidth}
+\begin{flushright}
+\bf Wintersemester 2008/09\\
+Universit\"at T\"ubingen\\
+#2 %Datum eintragen
+\end{flushright}
+\end{minipage}
+
+\begin{center}
+{\Large\bf Blatt #1}
+
+{(Abgabe am #3)}
+\end{center}
+\bigskip
+}
+
+
+
+\begin{document}
+
+\header{7}{4.12.2008}{11.12.2008}
+
+\bigskip
+\noindent{\bf Aufgabe 1  \quad 2 Punkte}\\
+Sei $f:\mathbb N\rightarrow\mathbb N$ ein (nicht notwendigerweise injektive, surjektive oder totale) Funktion. Wir definieren die inverse Funktion $f^{-1}(y)=\min_x f(x)=y$, wobei $\min_x f(x)=y$ undefiniert ist falls f\"ur alle $x$: $f(x)\neq y$.
+
+Zeigen Sie falls $f$ berechenbar ist, so ist $f^{-1}$ berechenbar.
+\bigskip
+
+\bigskip
+\noindent{\bf Aufgabe 2  \quad 3 Punkte}\\
+Pr"ufen Sie f"ur folgenden Kombinationen ob es eine Sprache $L$ mit folgenden Eigenschaften gibt und geben Sie gegebenenfalls ein Beispiel an:\\[1ex]
+\begin{tabular}{|cc|c|c|c|}
+\hline
+& $L$ & entscheidbar & nicht ent., rek. auf. & nicht rek. auf.\\
+$\bar L$ &  &  &  &  \\\hline
+entscheidbar  &  & ? & ? & ? \\\hline
+nicht ent., rek. auf.  &  & ? & ? & ? \\\hline
+nicht rek. auf. &  & ? & ? & ? \\\hline
+\end{tabular}
+\bigskip
+
+\bigskip
+\noindent{\bf Aufgabe 3  \quad 6 Punkte}\\
+Zeigen oder widerlegen Sie:
+\begin{enumerate}
+\item Zwei entscheidbare Sprachen lassen sich generell aufeinander reduzieren.
+\item Zwei unentscheidbare Sprachen lassen sich generell aufeinander reduzieren.
+\item Zwei nicht aufz\"ahlbare Sprachen lassen sich generell aufeinander reduzieren.
+\end{enumerate}
+\bigskip
+
+\bigskip
+\noindent{\bf Aufgabe 4  \quad 7 Punkte}\\
+Geben Sie ob die folgenden Sprachen entscheidbar/nicht entscheidbar, aber rekursiv aufz"ahlbar/ nicht rekursiv aufz\"ahlbar sind. Begr"unden Sie Ihre Antworten.
+\begin{enumerate}
+\item Die Kodierungen aller Turingmaschinen, die auf jeder Eingabe halten.
+\item Die Kodierungen aller Turingmaschinen, die auf keiner Eingabe halten.
+\item Die Kodierungen aller Turingmaschinen, die die succ-Funktion auf bin\"ar kodierten Zahlen berechnen.
+\item Die Kodierungen aller Turingmaschinen, die auf jeder Eingabe sofort (beim 1. Schritt) h"alt.
+\item Die Kodierungen aller Turingmaschinen, die auf jeder Eingabe innerhalb von 32 Schritten halten.
+\item Die Kodierungen aller Turingmaschinen, die auf keiner Eingabe innerhalb von 32 Schritten halten.
+\item Die Kodierungen aller Turingmaschinen, die auf genau 32 verschiedenen Eingaben halten.
+\end{enumerate}
+\bigskip
+
+
+
+\newpage
+\header{4B}{3.12.2008}{17.12.2008}
+
+\bigskip
+\noindent{\bf Aufgabe A}\\
+
+Programmieren Sie ein Programm das als Eingabe eine Liste von Zeichenkettenpaaren bekommt und "uberpr"uft, ob f"ur diese das PCP Problem l"osbar ist.
+Der einfachste Algorithmus f"ugt jeweils alle neuen Zeichenkettenpaare an die bestehende Paarkette an und testet ob dies m"oglich ist. Danach wird getestet ob das PCP Problem damit gel"ost ist, wenn nicht wird rekursiv fortgefahren.
+
+Sie d"urfen dabei folgende Spezialf"alle annehme, wenn Sie weitere Einschr"ankungen w"unschen sprechen Sie dies bitte mit uns ab.
+
+\begin{itemize}
+\item Das Eingabealphabet besteht nur aus 0 und 1
+\item Die Liste von Zeichenkettenpaaren enth"alt nur Zeichenketten bis zur L"ange 32
+\item Wenn das PCP Problem l\"osbar ist, hat es eine maximale Paarkette von $2^{12}$ Paaren. Aus Laufzeitgr"unden soll dieser Wert auch kleiner eingestellt werden k"onnen.
+\item Die Liste der Zeichenkettenpaare sowie der Parameter f"ur die obere Schranken k"onnen direkt im Quellcode eingegeben werden.
+\end{itemize}
+
+Beschreiben und implementieren Sie eine Optimierung f"ur das PCP Problem mit dem Sie bereits fr"uher abbrechen k"onnen wenn eine Startfolge das PCP Problem nicht mehr l"osen kann.
+
+Lassen Sie Ihren Algorithmus f"ur die folgende PCP Instanzen laufen:
+(10,0)   (0,001)    (001,1)
+
+\noindent Hinweis: Es ist unbekannt ob diese PCP Instanz eine L"osung besitzt.
+
+\bigskip
+
+\bigskip
+
+\noindent{\bf Aufgabe B}\\
+\begin{itemize}
+\item Geben Sie einen Algorithmus an der zu jeder PCP Instanz einen Markovalgorithmus erzeugt, der genau dann h"alt wenn das PCP Problem l"osbar ist.
+\item Geben Sie einen Algorithmus an der zu jedem Markovalgorithmus eine PCP Instanz an, die genau dann eine  L"osung hat wenn der Markovalgorithmus h"alt.
+\item Beweisen Sie dass alle PCP Instanzen "uber der un"aren Alphabet und alle Markovalgorithmen "uber dem unaren Alphabet entscheidbar sind.
+\end{itemize}
+
+
+\noindent{\em Informationen:}
+
+\noindent Die folgenden zwei Aussagen sind bekannt:
+\begin{itemize}
+\item Eine PCP Instanz mit zwei Zeichenkettenpaaren ist entscheidbar.
+\item Es gibt eine unentscheidbare PCP Instanz mit sieben Zeichenkettenpaaren.
+\end{itemize}
+
+\noindent F"ur PCP Instanzen mit 3,4,5 oder 6 Zeichenkettenpaaren ist unbekannt ob diese alle entscheidbar sind.
+\end{document}
+
+

@@ -1,0 +1,103 @@
+\documentclass[a4paper]{article}
+
+\usepackage[german]{babel}
+\usepackage{umlaut}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage[latin1]{inputenc}
+
+\def\header#1#2#3{\pagestyle{empty}
+\noindent
+\begin{minipage}[t]{0.6\textwidth}
+\begin{flushleft}
+\bf \"Ubungen zur Informatik III\\
+WSI f\"ur Informatik\\
+Lange/Behle/Krebs
+\end{flushleft}
+\end{minipage}
+\begin{minipage}[t]{0.4\textwidth}
+\begin{flushright}
+\bf Wintersemester 2007/08\\
+Universit\"at T\"ubingen\\
+#2 %Datum eintragen
+\end{flushright}
+\end{minipage}
+
+\begin{center}
+{\Large\bf Blatt #1}
+
+{(Abgabe am #3)}
+\end{center}
+}
+
+\begin{document}
+\header{2}{30.10.2006}{6.11.2006}
+
+
+\bigskip
+
+
+
+
+\noindent{\bf Aufgabe 1  \quad 9 Punkte}\\
+Geben Sie f"ur folgenden Sprachen m"oglichst kleine Grammatiken "uber\linebreak $\Sigma=\{a,b,c\}$ an:
+\begin{enumerate}
+\item $\Sigma^*$
+\item $\emptyset$
+\item $\{\lambda\}$
+\item Alle W"orter gerade L"ange
+\item Alle W"orter mit einer geraden Anzahl von $a$'s
+\item Alle W"orter mit mehr $a$'s als $b$'s
+\end{enumerate}
+
+\bigskip
+
+\noindent{\bf Aufgabe 2  \quad 3 Punkte}\\
+Beweisen Sie, dass eine Grammatik mit nur einer Produktionsregel nur endliche viele W"orter erkennen kann.
+Zeigen Sie, dass bei zwei Produktionsregeln es Grammatiken gibt die unendlich viele W"orter erkennen.
+
+\bigskip
+
+\noindent{\bf Aufgabe 3  \quad 6 Punkte}\\
+Ziel dieser Aufgabe ist es, eine Grammatik anzugeben, die kontextfreie Grammatiken beschreibt. Die zu beschreibende Grammatiken sollen dabei folgende Terminal- und Nonterminalmengen benutzen: $T=\{0,1\}$ und $N=\{S,A,B,C,D\}$.
+
+\begin{enumerate}
+\item Geben Sie eine Grammatik $G$ an, die alle Produktionen von kontextfreien Grammatiken mit Terminalen $T$ und Nonterminalen $N$ erzeugt. W"ahlen Sie dazu eine geeignete Menge von und Nonterminalen f"ur $G$ und als Terminalmenge die Menge $\{$'0', '1', 'S', 'A', 'B', 'C', 'D', '$\rightarrow$', '\{', '\}', '$\mid$', ','$\}$. Die Grammatik $G$ soll die Produktionen in der Schreibweise $\{S \rightarrow 0S\mid 1A, A \rightarrow AA\mid 0\}$.
+
+Das hei{\ss}t, genau dann ist $G'=(N,T,P,S)$ eine Grammatik wenn $P$ in $G$ ableitbar.
+\item Geben Sie einen Ableitungsbaum in Ihrer Grammatik f"ur das Wort an:
+$$\{S \rightarrow 0A\mid 0\mid \lambda, A\rightarrow A1A\mid  1 \}$$
+\end{enumerate}
+
+
+\bigskip
+
+\newpage
+\header{1B}{30.10.2006}{13.11.2006}
+
+\bigskip
+
+
+\bigskip
+
+Schreiben Sie einen Intepreter f"ur LOOP Programme, wie in der Definition von Sch"oning (Grundform ohne Erweiterungen).
+
+Ihr Programm erh"alt als Parameter eine Datei und optional weitere ganzzahlige Werte ($<2^{31}$), z.B.:\newline
+interpeter loop.prg 2 3 4
+
+Das Programm soll die das LOOP Programm aus der Datei lesen und auf Korrektheit "uberpr"uefen. Dann die Register $x_1,x_2,x_3,\dots$ mit den optionalen Parametern belegen (die "ubrigen Register sind mit 0 initialisiert) und das LOOP Programm ausf"uhren. Am Ende soll Ihr Programm alle Register $x_0,x_1,x_2,x_3,\dots$ ausgeben, die einen Wert ungleich 0 enthalten.
+
+Verwenden Sie zum Programmieren die Programmiersprache C/C++ sowie die Tools yacc/bison, die Ihnen zu einer Grammatik automatisch einen Parser erzeugen. Die offizielle Dokumentation zu bison finden Sie unter:
+
+%http://www.telos.info/Compiler.564+M5d637b1e38d.0.html
+%{\tt http://tinyurl.com/tue-info3}
+{\tt http://www.gnu.org/software/bison/manual/html\_mono/bison.html}
+
+In der Einleitung wird gezeigt wie ein while Interpreter geschrieben wird. Schreiben Sie bitte selbstst"andig ein Programm, das sich genau an die Syntax aus Sch"oning h"alt.
+
+\bigskip
+
+
+\end{document}
+
+

@@ -1,0 +1,8 @@
+*.aux
+*.log
+*.dvi
+blatt*.pdf
+*.out
+*.class
+
+blatt06data.tar.gz

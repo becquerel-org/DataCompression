@@ -1,0 +1,5 @@
+The following code computes the entropy of the file f using 3 bytes as one symbol.
+The method File.createTempFile(...) might be helpfull.
+
+File f = ...;
+Entropy countSingular=new Entropy(new SimpleAnalysis(f,3));

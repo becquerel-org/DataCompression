@@ -1,0 +1,66 @@
+\documentclass[a4paper]{article}
+
+\usepackage[german]{babel}
+\usepackage{umlaut}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage[latin1]{inputenc}
+\usepackage[margin=2.5cm]{geometry}
+\def\header#1#2#3{\pagestyle{empty}
+\noindent
+\begin{minipage}[t]{0.6\textwidth}
+\begin{flushleft}
+\bf \"Ubungen zur Informatik III\\
+WSI f\"ur Informatik\\
+Lange/Behle/Krebs
+\end{flushleft}
+\end{minipage}
+\begin{minipage}[t]{0.4\textwidth}
+\begin{flushright}
+\bf Wintersemester 2008/09\\
+Universit\"at T\"ubingen\\
+#2 %Datum eintragen
+\end{flushright}
+\end{minipage}
+
+\begin{center}
+{\Large\bf Blatt #1}
+
+{(Abgabe am #3)}
+\end{center}
+\bigskip
+}
+
+
+
+\begin{document}
+
+\header{6B}{18.12.2008}{8.1.2008}
+
+\bigskip
+\begin{center}
+\fbox{"Uber die Weihnachtsferien gibt es {\em kein} A-Blatt.}
+\end{center}
+
+\bigskip
+In der Vorlesung wurden die regul"aren Ausdr"ucke behandelt. Wir definieren hier sternfreie Ausdr"ucke "uber dem Alphabet $\Sigma$.
+
+\begin{itemize}
+\item $\emptyset$ ist ein sternfreier Ausdruck.
+\item $\lambda$ ist ein sternfreier Ausdruck.
+\item F"ur jedes $a\in\Sigma$ ist $a$ ein sternfreier Ausdruck.
+\item Wenn $\alpha,\beta$ sternfreie Ausdr"ucke sind, so ist $\alpha\beta$, $(\alpha|\beta)$ sowie $\overline{\alpha}$ ein sternfreier Ausdruck.
+\end{itemize}
+
+Dabei bezeichnet $\overline{\alpha}$ das Komplement der Sprache die durch $\alpha$ beschrieben wird, also $L(\overline{\alpha})=\Sigma^*\setminus L(\alpha)$. Die "ubrigen Operationen sind wie bei regul"aren Ausdr"ucken definiert.
+
+\begin{enumerate}
+\item Beweisen Sie dass die Sprachen $\Sigma^*$, $a^*$, $(ab)^*$ sternfrei sind.
+\item Beweisen Sie, dass die Sprachen die sich durch sternfreie Ausdr"ucke beschreiben lassen, sich auch durch regul"are Ausdr"ucke beschreiben lassen.
+\item Programmieren Sie einen Algorithmus der einen sternfreien Ausdruck in einen regul"aren Ausdruck umwandelt.
+\item Beweisen Sie dass die Sprache $(aa)^*$ nicht sternfrei ist.
+\end{enumerate}
+
+\end{document}
+
+

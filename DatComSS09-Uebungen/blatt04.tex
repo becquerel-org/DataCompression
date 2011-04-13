@@ -1,0 +1,75 @@
+\documentclass[a4paper]{article}
+
+\usepackage[german]{babel}
+%\usepackage{umlaut}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage{fullpage}
+\usepackage[latin1]{inputenc}
+
+\def\header#1#2#3#4{\pagestyle{empty}
+\noindent
+\begin{minipage}[t]{0.6\textwidth}
+\begin{flushleft}
+\bf \"Ubungen zur Datenkompression\\
+WSI f\"ur Informatik\\
+Lange/Krebs (Behle)
+\end{flushleft}
+\end{minipage}
+\begin{minipage}[t]{0.4\textwidth}
+\begin{flushright}
+\bf Sommersemester 2009\\
+Universit\"at T\"ubingen\\
+#2 %Datum eintragen
+\end{flushright}
+\end{minipage}
+
+\begin{center}
+{\Large\bf Blatt #1}
+
+{(Abgabe am #3)}
+\end{center}
+}
+
+\begin{document}
+\header{4}{28.05.2009}{11.06.2009}{}
+
+\bigskip
+Bachelorstudenten m"ussen nur die Aufgaben 2 und 3 bearbeiten.
+
+\bigskip
+
+{\bf Aufgabe 1  \quad(Entropie)}\\
+Zeigen Sie: Ist $X$ eine echt unabh"angige Zufallsquelle ohne Ged"achtnis (die Wahrscheinlichkeit f"ur ein Zeichen ist unabh"angig von den vorangegangenen Zeichen), so gilt:
+$$2\cdot H(X)= H(X^2).$$
+Dabei ist $X^2$, die Zufallsquelle, welche entsteht, wenn man statt einem Zeichen immer zwei aufeinanderfolgende Zeichen betrachtet.
+
+\bigskip
+
+{\bf Aufgabe 2  \quad(Verh"altnis Signal zu Verzerrung)}\\
+Schreiben Sie Routinen, die aus zwei Folgen von {\rm double}-Werten folgende Werte berechnen: Mittlerer quadratischer Fehler, Signal to Noise, Signal to Noise in Dezibel.
+
+Die erhalten die Eingabefolgen in Form von {\rm DataInput}-Objekten. Nutzen Sie die {\rm readDouble}-Methode um die Eingaben zu lesen.
+
+
+\bigskip
+
+{\bf Aufgabe 3  \quad(LZW)}\\
+Das Anfangw"orterbuch einer Folge, die mit dem LZW-Algorithmus kodiert wurde, sieht wie folgt aus:
+\begin{center}
+\begin{tabular}{|l|l|}\hline
+Index & Eintrag\\\hline
+1 & a\\
+2 & b\\
+3 & r\\
+4 & t\\\hline
+\end{tabular}
+\end{center}
+\begin{enumerate}
+\item Dekodieren Sie die nachstehende Ausgabe des LZW-Kodierers:
+$$3,1,4,6,8,4,2,1,2,5,10,6,11,13,6$$
+\item Testen Sie Ihr Ergebnis, indem Sie mit Hilfe des obigen Anfangsw"orterbuchs die von Ihnen dekodierte Folge wieder kodieren.
+\end{enumerate}
+
+\end{document}
+

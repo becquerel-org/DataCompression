@@ -1,0 +1,91 @@
+\documentclass[a4paper]{article}
+
+\usepackage[german]{babel}
+%\usepackage{umlaut}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage{fullpage}
+\usepackage{hyperref}
+\usepackage[latin1]{inputenc}
+
+\def\header#1#2#3#4{\pagestyle{empty}
+\noindent
+\begin{minipage}[t]{0.6\textwidth}
+\begin{flushleft}
+\bf \"Ubungen zur Datenkompression\\
+WSI f\"ur Informatik\\
+Lange/Krebs (Behle)
+\end{flushleft}
+\end{minipage}
+\begin{minipage}[t]{0.4\textwidth}
+\begin{flushright}
+\bf Sommersemester 2009\\
+Universit\"at T\"ubingen\\
+#2 %Datum eintragen
+\end{flushright}
+\end{minipage}
+
+\begin{center}
+{\Large\bf Blatt #1}
+
+{(Abgabe am #3)}
+\end{center}
+}
+
+\begin{document}
+\header{8}{09.07.2009}{23.07.2009}{}
+
+\bigskip
+
+\noindent
+
+\bigskip
+
+
+{\bf Aufgabe 1  \quad(Diskrete Cosinustransformation und Quantisierung)}\\
+\begin{enumerate}
+\item Implementieren Sie eine Routine zur Berechnung der diskreten Cosinustransformation und ihrer Inversen.
+
+\item Implementieren Sie eine Funktion zur Quantisierung der entstehenden Matrix mit Hilfe einer Quantisierungsmatrix wie im JPEG-Standard. Die Quantisierungsfunktion hat also als Argumente die zu quantisierende Matrix und die Quantisierungsmatrix.
+
+Die Funktion soll mit Integermatrizen arbeiten.
+
+\item Berechnen sie f"ur die angegebenen Matrizen die diskrete Cosinustransformation und quantisieren Sie deren Ergebnis mit der Quantisierungsmatrix von JPEG. Berechnen Sie dann die inverse Cosinusfunktion und berechnen Sie jeweils den Fehler in Form des mittleren quadratischen Fehlers. Beschreiben Sie Ihren visuellen Eindruck des Bildes.
+
+Hinweis: Wandeln Sie die double-Werte der diskreten Cosinustransformation in Integerwerte um, indem sie $x*100$ rechnen und dann die Nachkommastellen abschneiden.
+
+Die zu betrachtenden ,,Originalbildmatrizen'' sind die von den Folien. Sie k"onnens sie von der "Ubungswebseite herunter laden.
+
+\end{enumerate}
+
+
+\bigskip
+
+
+{\bf Aufgabe 2  \quad(Einfacher JPEG auf Graubildern)}\\
+Implementieren Sie mit Hilfe Ihrer Routinen aus Aufgabe 1 eine einfache Form des JPEG-Algorithmus. Dieser Algorithmus soll folgende Punkte umfassen:
+\begin{enumerate}
+\item Aufteilen des Bildes in $8\times 8$-Bl"ocke,
+\item Anwendung der Diskreten Cosinustransformation,
+\item Quantisierung mit der JPEG-Luminanzmatrix,
+\item Differentialcodierung der DC-Komponenten,
+\item Zig-Zack-Abtastung und Runlengthkodierung der AC-Komponenten.
+\end{enumerate}
+Sie Sie k"onnen bei den beiden letzten Punkten auf eine Bit-Kodierung des Datenstroms verzichten.
+
+Sch"atzen Sie anhand die Gr"o{\ss}e des komprimierten Bildes ab, unter der Annahme, dass die entstehenden Daten mit Huffman komprimiert w"urden.
+
+Schreiben Sie ein Programm, das ihre Bilder zur"uck in das PNG-Format umwandelt.
+
+
+\bigskip
+
+
+{\bf Aufgabe 3  \quad(Einfacher JPEG) \quad (Freiwillig)}\\
+Implementieren Sie mit Hilfe von Aufgabe 2 eine Version von JPEG f"ur Farbbilder. Suchen Sie, z.B. in der JPEG-Spezifikation, nach den Werten f"ur die Umrechnung von RGB in YIV und die Quantisierungsmatrizen f"ur die Farbanteile.
+
+Wandeln Sie das RGB Bild in die 3 YIV Komponenten um und wenden sie auf jede Komponente die Schritte aus Aufgabe 2 an.
+
+
+\end{document}
+

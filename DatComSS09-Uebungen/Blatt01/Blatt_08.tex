@@ -1,0 +1,70 @@
+\documentclass[a4paper]{article}
+
+\usepackage[german]{babel}
+\usepackage{umlaut}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage[latin1]{inputenc}
+\usepackage[margin=2.5cm]{geometry}
+\def\header#1#2#3{\pagestyle{empty}
+\noindent
+\begin{minipage}[t]{0.6\textwidth}
+\begin{flushleft}
+\bf \"Ubungen zur Informatik III\\
+WSI f\"ur Informatik\\
+Lange/Behle/Krebs
+\end{flushleft}
+\end{minipage}
+\begin{minipage}[t]{0.4\textwidth}
+\begin{flushright}
+\bf Wintersemester 2008/09\\
+Universit\"at T\"ubingen\\
+#2 %Datum eintragen
+\end{flushright}
+\end{minipage}
+
+\begin{center}
+{\Large\bf Blatt #1}
+
+{(Abgabe am #3)}
+\end{center}
+\bigskip
+}
+
+
+
+\begin{document}
+
+\header{8}{11.12.2008}{18.12.2008}
+
+\bigskip
+\noindent{\bf Aufgabe 1 \quad 10 Punkte}\\
+Geben Sie f"ur folgende Sprachen jeweils einen endlichen Automaten an. Das Alphabet ist $\Sigma=\{a,b\}$. Geben Sie jeweils den Automaten in Tupelschreibweise an, Sie d"urfen die "Ubergangsfunktion graphisch darstellen.
+\begin{enumerate}
+\item $L=\emptyset$
+\item $L=\{a,b\}^*$
+\item $L=\{w\mid w\mbox{ enth"alt genau $3$ $a$'s }\}$
+\item $L=\{w\mid w\mbox{ enth"alt mindestens $3$ $a$'s }\}$
+\item $L=\{w\mid w\mbox{ enth"alt h"ochstens $3$ $a$'s }\}$
+\item $L=\{w\mid w\mbox{ enth"alt eine gerade Anzahl von $a$'s}\}$
+\item $L=\{w\mid w\mbox{ enth"alt eine ungerade Anzahl von $a$'s}\}$
+\item $L=\{w\mid w\mbox{ enth"alt eine durch 5 teilbare Anzahl von $a$'s}\}$
+\item $L=\{w\mid w\mbox{ beginnt mit $aab$}\}$
+\item $L=\{w\mid w\mbox{ endet mit $aab$}\}$
+\end{enumerate}
+
+\bigskip
+
+\bigskip
+\noindent{\bf Aufgabe 2 \quad 3 Punkte}\\
+Geben Sie ein Konstruktionsprinzip an, wie Sie zu jeder endlichen Sprache einen endlichen Automaten konstruieren k"onnen.
+
+Wie l"asst sich das Prinzip auf Sprachen erweitern, die Komplemente von endlichen Sprachen sind?
+
+\bigskip
+\noindent{\bf Aufgabe 3 \quad 5 Punkte}\\
+Geben Sie jeweils einen Automaten an, der die Menge aller natürlichen Zahlen in Dezimaldarstellung akzeptiert, die durch 3 teilbar sind/durch 7 teilbar sind.
+
+\end{document}
+
+

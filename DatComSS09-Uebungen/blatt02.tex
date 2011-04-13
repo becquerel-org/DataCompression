@@ -1,0 +1,80 @@
+\documentclass[a4paper]{article}
+
+\usepackage[german]{babel}
+%\usepackage{umlaut}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage{fullpage}
+\usepackage[latin1]{inputenc}
+
+\def\header#1#2#3#4{\pagestyle{empty}
+\noindent
+\begin{minipage}[t]{0.6\textwidth}
+\begin{flushleft}
+\bf \"Ubungen zur Datenkompression\\
+WSI f\"ur Informatik\\
+Lange/Krebs (Behle)
+\end{flushleft}
+\end{minipage}
+\begin{minipage}[t]{0.4\textwidth}
+\begin{flushright}
+\bf Sommersemester 2009\\
+Universit\"at T\"ubingen\\
+#2 %Datum eintragen
+\end{flushright}
+\end{minipage}
+
+\begin{center}
+{\Large\bf Blatt #1}
+
+{(Abgabe am #3)}
+\end{center}
+}
+
+\begin{document}
+\header{2}{7.05.2009}{14.5.2009}{}
+
+
+{\bf Aufgabe 1  \quad(Arithmetische Kodierung)}\smallskip\\
+Betrachten Sie folgendes Wahrscheinlichkeitsmodell f"ur eine Quelle mit drei Buchstaben $a,b,c$: $P(a)=0,2$, $P(b)=0,3$ und $P(c)=0,5$.
+\begin{enumerate}
+\item Bestimmen Sie den reelwertigen Stellvertreter des Wortes $aacbca$.
+\item Decodieren Sie ein Wort der L"ange 10 mit dem Stellvertreter $0,63215699$.
+\item Geben Sie f"ur beide Kodierungen der ersten beiden Aufgabenteile die Bin"arcodes an.
+\end{enumerate}
+
+
+\bigskip
+
+
+{\bf Aufgabe 2  \quad(Arithmetische Kodierung)}\smallskip\\
+Betrachten Sie die Arithmetische Kodierung. Das Problem bei einer praktischen Implementierung sind die Flie{\ss}kommaoperationen bei der Berechnung der Intervallgrenzen und des Stellvertreters. Um zu gro{\ss}e Fehler zu vermeiden, wird die Skalierungstechnik eingesetzt.
+
+Geben Sie ein Beispiel f"ur ein Alphabet $\Sigma$, eine Wahrscheinlichkeitsverteilung $P$ auf $\Sigma$ und Folgen von Eingabesymbolen an, so dass sich bei der Arithmetischen Kodierung mit Skalierung die Kodierung erst mit dem letzten Eingabesymbol feststeht.
+
+\bigskip
+
+{\bf Aufgabe 3  \quad(Move to Front)}\smallskip\\
+Die {\em Move to Front}-Transformation funktioniert folgenderweise: Die Eingabelemente werden in einer Liste gehalten, welche zu Beginn eine vorgegebene Reihenfolge hat. Wird nun ein Zeichen eingelesen, so ist seine Kodierung sein Index in der Liste. Gleichzeitig wird das Zeichen an die erste Stelle der Liste ger"uckt.
+
+\begin{enumerate}
+\item\label{a}(*) Implementieren Sie die {\em Move to Front}-Transformation, geben sie direkt den Index aus.
+\item\label{b} Warum ereicht man durch das Verfahren in \ref{a} keine Kompression? Unter welchen Umst"anden ist die {\em Move to Front}-Transformation sinnvoll? Wie l"a{\ss}t sich die {\em Move-to-Front}-Transformation ausnutzen, um bessere Kompressionsraten zu erreichen?
+
+"Uberlegen Sie sich einen einfachen Code f"ur die Indizes, der unter g"unstigen Umst"anden es erlaubt, eine Datenkompression durch die {\em Move to Front}-Transformation zu erreichen.
+\item(*) Implementieren Sie Ihre L"osung aus Teil \ref{b}. Um die Programmierung zu vereinfachen, k"onnen Sie die ,,Bin"arausgabe'' durch Ausgeben von $0$ und $1$ simulieren. Geben Sie ein Beispiel an, bei dem Sie eine Datenkompression erreichen. 
+\end{enumerate}
+
+
+
+
+\bigskip
+
+{\bf Aufgabe 4  \quad(Shanon-Kodierung)}\smallskip\\
+Implementieren Sie Routinen zur Kodierung und Dekodierung mittels der Shannon-Kodierung. Zur Vereinfachung der Implementierung d"urfen Sie die Bitausgaben als $0,1$-String kodieren.
+
+
+
+\end{document}
+
+

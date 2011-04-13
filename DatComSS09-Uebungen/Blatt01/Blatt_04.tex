@@ -1,0 +1,153 @@
+\documentclass[a4paper]{article}
+
+\usepackage[german]{babel}
+\usepackage{umlaut}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage[latin1]{inputenc}
+\usepackage[margin=2.5cm]{geometry}
+\def\header#1#2#3{\pagestyle{empty}
+\noindent
+\begin{minipage}[t]{0.6\textwidth}
+\begin{flushleft}
+\bf \"Ubungen zur Informatik III\\
+WSI f\"ur Informatik\\
+Lange/Behle/Krebs
+\end{flushleft}
+\end{minipage}
+\begin{minipage}[t]{0.4\textwidth}
+\begin{flushright}
+\bf Wintersemester 2008/09\\
+Universit\"at T\"ubingen\\
+#2 %Datum eintragen
+\end{flushright}
+\end{minipage}
+
+\begin{center}
+{\Large\bf Blatt #1}
+
+{(Abgabe am #3)}
+\end{center}
+}
+
+
+
+\begin{document}
+\header{4}{13.11.2008}{20.11.2008}
+
+\bigskip
+\begin{center}
+\fbox {
+\begin{minipage}{1.0\linewidth}
+Alle LOOP-Programe m"ussen grunds"atzlich auf ihre Korrektheit untersucht werden. 
+Steht in der Aufgabenstellung etwas von \glqq beweisen Sie\grqq $\;$ oder \glqq Beweis\grqq , dann erwarten wir hier einen
+formalen Beweis. Ansonsten reicht eine nat"urlichsprachliche Begr"undung oder Argumentation aus. 
+
+Falls Ihr LOOP-Programm nicht leicht verst"andlich ist, wird die Aufgabe mit 0 Punkten bewertet.
+\end{minipage}
+}
+\end{center}
+
+
+\bigskip
+Bitte halten Sie sich bei allen LOOP-Programmen genau an den Syntax aus Sch"oning. Es sind keine Erweiterungen oder Abk"urzungen zul"assig.
+
+\bigskip
+\noindent{\bf Aufgabe 1  \quad 3 Punkte}\\
+Geben Sie jeweils ein LOOP-Programm an, dass die folgende Funktion berechnet:
+\begin{enumerate}
+\item $f_1(x)=2x$,
+\item $f_2(x)=2^x$,
+\item $f_3(x)=x^2$.
+\end{enumerate}
+\bigskip
+
+\noindent{\bf Aufgabe 2  \quad 6 Punkte}\\
+Zeigen Sie, wie sich folgende zwei Konstrukte in LOOP-Programmen realisieren lassen:
+\begin{enumerate}
+\item
+
+SWITCH x\\
+CASE 0: $A_0$\\
+CASE 1: $A_1$\\
+$\vdots$\\
+CASE k: $A_k$\\
+DEFAULT: $A_{k+1}$\\
+END\\
+
+Die Semantik ist wie folgt: Hat $x$ bei der Anweisung SWITCH x den Wert $i$ und existiert ein CASE i, dann wird $A_i$ ausgef"urht, anderenfalls $A_{k+1}$. 
+
+\item
+WHILE x$\neq$0 BOUND y DO P END\\
+
+Die Semantik ist wie folgt: Das Programm $P$ wird solange ausgef"uhrt wie $x$ nicht den Wert 0 hat, jedoch maximal so oft wie der Wert von $y$ zu Beginn.
+\end{enumerate}
+
+
+\bigskip
+
+\noindent{\bf Aufgabe 3  \quad 9 Punkte}\\
+Geben Sie jeweils ein LOOP-Programm an, dass die folgende Funktion berechnet:
+\begin{enumerate}
+\item $f_4(x)=\underbrace{2^{2^{2^{\;^{\dots^2}}}}}_{x\mbox{ mal}}$,
+\item $f_5(x)=\lfloor \sqrt(x)\rfloor$,
+\item $f_6(x)=\lfloor \log_2(x)\rfloor$.
+\end{enumerate}
+\bigskip
+\bigskip
+
+\newpage
+\header{2B}{13.11.2008}{27.11.2008}
+
+\bigskip
+Wir geben hier ein weiteres Berechenbarkeitsmodell an, das turingm"achtig ist.
+
+Ein {\em Markov Algorithmus} operiert auf W"ortern "uber einem Alphabet $\Sigma$ und besteht aus einer geordneten Menge von Regeln. Eine Regel besteht aus einer linken und einer rechten Seite, wobei jede Seite ein Wort aus $\Sigma^*$ ist, wir schreiben $u\Rightarrow v$. Au\ss erdem ist jede Regel entweder eine terminierende Regel oder eine  nicht-terminierende Regel. Bei einer terminierenden Regel schreiben wir $u\Rightarrow\!\!|v$. 
+
+Eine Regel $u\Rightarrow v$ ist auf ein Wort $w\in\Sigma^*$ anwendbar, wenn $w=xuy$ f"ur $x,y\in\Sigma^*$, wobei $w$ so geteilt wird, dass das linkeste Vorkommen von $u$ gew"ahlt wird. Das Ergebnis der Anwendung ist das Wort $xvy$. 
+
+Der Algorithmus funktioniert folgenderma\ss en auf der Eingabe $w$. Es wird die erste Regel gew"ahlt, die auf $w$ anwendbar ist, und angewendet, das Ergebnis sei $w'$. Ist diese Regel eine terminierende Regel, so ist die Ausgabe des Algorithmus $w'$. Ist diese Regel eine nicht-terminiernde Regel, so wiederholen wir den Vorgang mit $w'$ (statt $w$). Ist keine Regel anwendbar so terminiert der Algorithmus mit der Ausgabe $w$.
+
+Beispiel:
+$\Sigma=\{0,1,I\}$, $A=(I0\Rightarrow 0II, 1\Rightarrow 0I, 0\Rightarrow\lambda)$.
+
+Eingabe: $w=1101$, es sind auf der linken Seite jeweils die angewendeten Regeln angegeben:\\
+\hspace*{1cm}
+{\small\tt
+\begin{tabular}{rl}
+   &1101\\
+(2)&0I101\\
+(2)&0I0I01\\
+(1)&00III01\\
+(1)&00II0II1\\
+(1)&00I0IIII1\\
+(1)&000IIIIII1\\
+(1)&000IIIIII1\\
+(2)&000IIIIII0I\\
+(1)&000IIIII0III\\
+(1)&000IIII0IIIII\\
+(1)&000III0IIIIIII\\
+(1)&000II0IIIIIIIII\\
+(1)&000I0IIIIIIIIIII\\
+(1)&0000IIIIIIIIIIIII\\
+(3)&000IIIIIIIIIIIII\\
+(3)&00IIIIIIIIIIIII\\
+(3)&0IIIIIIIIIIIII\\
+(3)&IIIIIIIIIIIII\\
+\end{tabular}
+}
+
+Der Algorithmus wandelt eine Bin"arzahl in eine Un"arzahl um.
+
+
+\bigskip
+\noindent{\bf Aufgabe 1}\\
+Geben Sie einen Markov Algorithmus an, der die Ackermannfunktion berechnet. Beweisen Sie die Korrektheit Ihres Algorithmus.
+
+\bigskip
+\noindent{\bf Aufgabe 2}\\
+Beweisen Sie, dass die Markov Algorithmen genau die turingberechenbaren Funktionen berechnen k"onnen.
+
+\end{document}
+
+

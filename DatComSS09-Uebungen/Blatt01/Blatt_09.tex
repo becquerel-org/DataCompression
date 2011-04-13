@@ -1,0 +1,73 @@
+\documentclass[a4paper]{article}
+
+\usepackage[german]{babel}
+\usepackage{umlaut}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage{color}
+\usepackage[latin1]{inputenc}
+\usepackage[margin=2.5cm]{geometry}
+\def\header#1#2#3{\pagestyle{empty}
+\noindent
+\begin{minipage}[t]{0.6\textwidth}
+\begin{flushleft}
+\bf \"Ubungen zur Informatik III\\
+WSI f\"ur Informatik\\
+Lange/Behle/Krebs
+\end{flushleft}
+\end{minipage}
+\begin{minipage}[t]{0.4\textwidth}
+\begin{flushright}
+\bf Wintersemester 2008/09\\
+Universit\"at T\"ubingen\\
+#2 %Datum eintragen
+\end{flushright}
+\end{minipage}
+
+\begin{center}
+{\Large\bf Blatt #1}
+
+{(Abgabe am #3)}
+\end{center}
+\bigskip
+}
+
+
+
+\begin{document}
+
+\header{9}{08.1.2009}{15.1.2009}
+
+\bigskip
+\noindent{\bf Aufgabe 1 \quad 3 Punkte}\\
+Zeigen Sie mit Hilfe des Pumping Lemmas f"ur regul"are Sprachen, dass die Sprache\\ $L=\{a^ib^jc^k\mid i=j\mbox{ oder }j=k\}$ nicht regul"ar ist.
+
+\bigskip
+\noindent{\bf Aufgabe 2 \quad 4 Punkte}\\
+Geben Sie f"ur folgende regul"aren Ausdr"ucke einen "aquivalenten endlichen Automaten an ($\Sigma=\{a,b\}$):
+\begin{enumerate}
+\item $(aa|aab|aba)^*$
+\item $(a(ab|ba)^*b)^*$
+\item $\Sigma^*(aab|ab)^*\Sigma^*$.
+\end{enumerate}
+
+
+\bigskip
+\noindent{\bf Aufgabe 3 \quad 5 Punkte}\\
+Wandeln Sie folgende Automaten in einen DFA um:
+\begin{center}
+\includegraphics[width=5cm]{aastar}\hspace{3cm}
+\includegraphics[width=7cm]{aut1}
+\end{center}
+
+\bigskip
+\noindent{\bf Aufgabe 4 \quad 5 Punkte}\\
+Konstruieren Sie zu folgendem Automaten den Minimalautomaten:
+\begin{center}
+\includegraphics[width=11cm]{min1}
+\end{center}
+Geben Sie mit Hilfe des Minimalautomaten einen m"oglichst einfachen NFA an, der dieselbe Sprache erkennt.
+
+\end{document}
+
+

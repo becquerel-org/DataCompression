@@ -1,0 +1,74 @@
+\documentclass[a4paper]{article}
+
+\usepackage[german]{babel}
+%\usepackage{umlaut}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage[latin1]{inputenc}
+\usepackage[margin=2.5cm]{geometry}
+\def\header#1#2#3{\pagestyle{empty}
+\noindent
+\begin{minipage}[t]{0.6\textwidth}
+\begin{flushleft}
+\bf \"Ubungen zur Informatik III\\
+WSI f\"ur Informatik\\
+Lange/Behle/Krebs
+\end{flushleft}
+\end{minipage}
+\begin{minipage}[t]{0.4\textwidth}
+\begin{flushright}
+\bf Wintersemester 2008/09\\
+Universit\"at T\"ubingen\\
+#2 %Datum eintragen
+\end{flushright}
+\end{minipage}
+
+\begin{center}
+{\Large\bf Blatt #1}
+
+{(Abgabe am #3)}
+\end{center}
+\bigskip
+}
+
+
+
+\begin{document}
+
+\header{11}{22.1.2009}{29.1.2009}
+
+\bigskip
+\noindent{\bf Aufgabe 1  \quad 6 Punkte}\\
+Bestimmen Sie alle Rechtsklassen der folgenden Sprachen:
+\begin{enumerate}
+\item Alle Bin"arzahlen (ohne f"uhrende Nullen), die durch 5 teilbar sind.
+\item Alle Dezimalzahlen (ohne f"uhrende Nullen), die durch 5 teilbar sind.
+\item $b(abab)^*$
+\item $(ab)^*(ba)^*$
+\end{enumerate}
+
+\bigskip
+
+\noindent{\bf Aufgabe 2  \quad 4 Punkte}\\
+Zeigen Sie mit dem Satz von Myhill-Nerode, dass die folgenden Sprachen nicht regul"ar sind:
+\begin{enumerate}
+\item $\{a^nba^n\mid n\in\mathbb N\}$
+\item $\{(ab)^n(ba)^n\mid n\in\mathbb N\}$
+\end{enumerate}
+
+\bigskip
+
+\noindent{\bf Aufgabe 3  \quad 8 Punkte}\\
+Zeigen oder widerlegen Sie, dass die folgenden Sprachen regul"ar sind, dabei ist $\Sigma=\{a,b,\$\}$:
+\begin{enumerate}
+\item $\{a^*ba^lba^mba^{l+m}\mid l,m\in\mathbb N\}$ 
+\item $\{a^kba^lba^mba^{n}\mid k,l,m,n\in\mathbb N, k+m\equiv l+n\pmod 5\}$ 
+\item $\{uvw\mid u,v,w\in\Sigma^*, u=v \lor v=w\}$
+\item $\{uv\$wx\mid u,v,w,x\in\Sigma^*, u=x\}$
+\item $\{ua^{|u|}\mid u\in\Sigma^*\}$
+\end{enumerate}
+\bigskip
+
+\end{document}
+
+
