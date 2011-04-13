@@ -4,12 +4,15 @@ SOURCETEST=$(wildcard tests/*.java)
 SOURCETASKS=$(wildcard tasks/*.java)
 
 
+JAVAC=javac
+#JAVAC=/usr/lib/jvm/java-1.5.0-sun/bin/javac
+
 SOURCE=$(SOURCETOOLS) $(SOURCEUTIL) $(SOURCETEST) $(SOURCETASKS)
 
 OBJECTS=$(SOURCE:.java=.class)
 
 %.class: %.java
-	javac -cp .. $<
+	$(JAVAC) -cp .. $<
 
 all: $(OBJECTS)
 
